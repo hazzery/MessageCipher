@@ -2,6 +2,7 @@
 Affine Cipher
 """
 from Conversions import *
+from Abstract_Cipher import AbstractCipher
 
 
 def inverse_modulo_26(number: int) -> int:
@@ -14,7 +15,7 @@ def inverse_modulo_26(number: int) -> int:
     return pow(number, -1, 26)
 
 
-class AffineCipher:
+class AffineCipher(AbstractCipher):
 
     INVERTIBLE_ELEMENTS = [1, 5, 7, 11, 13, 19, 23]
 
@@ -53,19 +54,6 @@ class AffineCipher:
         number = (char_to_int(char) * self.a + self.b) % 26
         return int_to_char(number)
 
-    def encrypt(self, plaintext: str) -> str:
-        """
-        Encrypts a message using the affine cipher
-
-        :param plaintext: message to be encrypted
-        :return: string of encrypted message
-        """
-        ciphertext = ""
-        for char in plaintext:
-            if char.isalpha():
-                ciphertext += self._encrypt_char(char).upper()
-        return ciphertext
-
     def _decrypt_char(self, char: str) -> str:
         """
         Decrypts a single character using the affine cipher
@@ -75,15 +63,3 @@ class AffineCipher:
         """
         number = ((char_to_int(char) - self.b) * inverse_modulo_26(self.b)) % 26
         return int_to_char(number)
-
-    def decrypt(self, ciphertext: str) -> str:
-        """
-        Decrypts encrypted message using the affine cipher
-
-        :param ciphertext: encrypted message to decrypt
-        :return: string of decrypted message
-        """
-        plaintext = ""
-        for char in ciphertext:
-            plaintext += self._decrypt_char(char).upper()
-        return plaintext

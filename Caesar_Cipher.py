@@ -3,9 +3,10 @@ Caesar Cipher
 """
 
 from Conversions import *
+from Abstract_Cipher import AbstractCipher
 
 
-class CaesarCipher:
+class CaesarCipher(AbstractCipher):
 
     def __init__(self, shift: int):
         """
@@ -38,19 +39,6 @@ class CaesarCipher:
         number = (char_to_int(char) + self.shift) % 26
         return int_to_char(number)
 
-    def encrypt(self, plaintext: str) -> str:
-        """
-        Encrypts a message using the caesar cipher
-
-        :param plaintext: message to be encrypted
-        :return: string of encrypted message
-        """
-        ciphertext = ""
-        for char in plaintext:
-            if char.isalpha():
-                ciphertext += self._encrypt_char(char).upper()
-        return ciphertext
-
     def _decrypt_char(self, char: str) -> str:
         """
         Decrypts a single character using the caesar cipher
@@ -60,15 +48,3 @@ class CaesarCipher:
         """
         number = (char_to_int(char) - self.shift) % 26
         return int_to_char(number)
-
-    def decrypt(self, ciphertext: str) -> str:
-        """
-        Decrypts encrypted message using the caesar cipher
-
-        :param ciphertext: encrypted message to decrypt
-        :return: string of decrypted message
-        """
-        plaintext = ""
-        for char in ciphertext:
-            plaintext += self._decrypt_char(char).upper()
-        return plaintext
