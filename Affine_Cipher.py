@@ -2,27 +2,25 @@
 Affine Cipher
 """
 from Conversions import *
-from Abstract_Cipher import AbstractCipher
+from Modulo26_Cipher import Mod26Cipher
 
 
 def inverse_modulo_26(number: int) -> int:
     """
     Calculates the multiplicative inverse of `number` modulo 26
-
     :param number: number to calculate inverse of
     :return: the multiplicative inverse
     """
     return pow(number, -1, 26)
 
 
-class AffineCipher(AbstractCipher):
+class AffineCipher(Mod26Cipher):
 
     INVERTIBLE_ELEMENTS = [1, 5, 7, 11, 13, 19, 23]
 
     def __init__(self, a: int, b: int):
         """
         Initializes a new Affine cipher with coefficients `a` and `b`
-
         :param a: The degree one coefficient of the Affine cipher
         :param b: The degree zero coefficient of the Affine cipher
         :return: An `AffineCipher` object for the given coefficients
@@ -47,7 +45,6 @@ class AffineCipher(AbstractCipher):
     def _encrypt_char(self, char: str) -> str:
         """
         Encrypts a single character using the affine cipher
-
         :param char: string of length 1 containing letter to be encrypted
         :return: string of length 1 containing encrypted letter
         """
@@ -57,7 +54,6 @@ class AffineCipher(AbstractCipher):
     def _decrypt_char(self, char: str) -> str:
         """
         Decrypts a single character using the affine cipher
-
         :param char: string of length 1 containing letter to be decrypted
         :return: string of length 1 containing decrypted letter
         """

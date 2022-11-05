@@ -3,15 +3,14 @@ Caesar Cipher
 """
 
 from Conversions import *
-from Abstract_Cipher import AbstractCipher
+from Modulo26_Cipher import Mod26Cipher
 
 
-class CaesarCipher(AbstractCipher):
+class CaesarCipher(Mod26Cipher):
 
     def __init__(self, shift: int):
         """
         Initializes a new Caesar cipher with shift of `shift`
-
         :param shift: The number of letters to shift the alphabet by
         :return: An `CaesarCipher` object for the given shift value
         """
@@ -24,7 +23,6 @@ class CaesarCipher(AbstractCipher):
     def __repr__(self):
         """
         String representation of `CaesarCipher` instance
-
         :return: String representing specified cipher
         """
         return f"CaesarCipher({self.shift})"
@@ -32,7 +30,6 @@ class CaesarCipher(AbstractCipher):
     def _encrypt_char(self, char: str) -> str:
         """
         Encrypts a single character using the caesar cipher
-
         :param char: string of length 1 containing letter to be encrypted
         :return: string of length 1 containing encrypted letter
         """
@@ -42,7 +39,6 @@ class CaesarCipher(AbstractCipher):
     def _decrypt_char(self, char: str) -> str:
         """
         Decrypts a single character using the caesar cipher
-
         :param char: string of length 1 containing letter to be decrypted
         :return: string of length 1 containing decrypted letter
         """
