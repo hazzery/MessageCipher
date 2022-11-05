@@ -8,21 +8,33 @@ import random
 
 
 def is_prime(number: int) -> bool:
+    """
+    Calculates all factors of `number` up to `sqrt(number)`
+    to determine its primality
+    :param number: number to check primality of
+    :return: `True` if number is prime, otherwise `False`
+    """
     # code from https://www.programiz.com/python-programming/examples/prime-number
 
-    prime = True
     # prime numbers are greater than 1
-    if number > 1:
-        # check for factors
-        for i in range(2, math.ceil(math.sqrt(number))):
-            if (number % i) == 0:
-                # if factor is found, set flag to True
-                prime = False
-                break
-    return prime
+    assert number > 1
+
+    composite = False
+    # check for factors
+    for i in range(2, math.ceil(math.sqrt(number))):
+        if (number % i) == 0:
+            # if factor is found, set flag to True
+            composite = True
+            break
+    return composite
 
 
 def invertible_elements(number: int) -> list:
+    """
+    Calculates all numbers invertible modulo `number`
+    :param number: The modulo to find invertible numbers in
+    :return: list of all invertible elements
+    """
     result = []
     for i in range(number):
         try:
@@ -58,11 +70,6 @@ class RSA(AbstractCipher):
         self.public_key = (self.n, self.e)
 
         self.private_key = pow(self.e, -1, self.phi_n)
-
-        # print("n:", self.n)
-        # print("phi_n:", self.phi_n)
-        # print("e:", self.e)
-        # print("d:", self.private_key)
 
     def __repr__(self):
         """
