@@ -37,7 +37,6 @@ class AffineCipher(Mod26Cipher):
     def __repr__(self):
         """
         String representation of `AffineCipher` instance
-
         :return: String representing specified cipher
         """
         return f"AffineCipher({self.a}, {self.b})"
