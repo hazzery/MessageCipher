@@ -15,7 +15,7 @@ class AbstractCipher(metaclass=ABCMeta):
         :return: string of encrypted message
         """
 
-        return NotImplementedError
+        raise NotImplementedError
 
     @abstractmethod
     def decrypt(self, ciphertext):
@@ -24,4 +24,4 @@ class AbstractCipher(metaclass=ABCMeta):
         :param ciphertext: encrypted message to decrypt
         :return: decrypted message
         """
-        return NotImplementedError
+        raise NotImplementedError
