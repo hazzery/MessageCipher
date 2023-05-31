@@ -2,7 +2,8 @@
 Cipher
 """
 
-from abc import *
+from abc import ABCMeta, abstractmethod
+from typing import Iterable
 
 
 class AbstractCipher(metaclass=ABCMeta):
@@ -18,7 +19,7 @@ class AbstractCipher(metaclass=ABCMeta):
         raise NotImplementedError
 
     @abstractmethod
-    def decrypt(self, ciphertext):
+    def decrypt(self, ciphertext: Iterable):
         """
         Decrypts encrypted message using the cipher
         :param ciphertext: encrypted message to decrypt
