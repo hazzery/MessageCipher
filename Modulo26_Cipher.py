@@ -3,10 +3,12 @@ Cipher
 """
 
 from Abstract_Cipher import AbstractCipher
+from abc import ABCMeta, abstractmethod
 
 
-class Mod26Cipher(AbstractCipher):
+class Mod26Cipher(AbstractCipher, metaclass=ABCMeta):
 
+    @abstractmethod
     def _encrypt_char(self, char: str) -> str:
         """
         Encrypts a single character using the cipher
@@ -27,6 +29,7 @@ class Mod26Cipher(AbstractCipher):
                 ciphertext += self._encrypt_char(char).upper()
         return ciphertext
 
+    @abstractmethod
     def _decrypt_char(self, char: str) -> str:
         """
         Decrypts a single character using the cipher
