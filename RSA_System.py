@@ -93,7 +93,7 @@ class RSA(AbstractCipher):
     def _decrypt_num(self, num: int) -> str:
         """
         Decrypts a single character using the affine cipher
-        :param char: string of length 1 containing letter to be decrypted
+        :param num: integer to be decrypted
         :return: string of length 1 containing decrypted letter
         """
         number = pow(num, self.private_key, self.n)
