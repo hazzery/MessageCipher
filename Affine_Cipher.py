@@ -1,7 +1,7 @@
 """
 Affine Cipher
 """
-from Conversions import *
+from Conversions import char_to_int, int_to_char
 from Modulo26_Cipher import Mod26Cipher
 
 
