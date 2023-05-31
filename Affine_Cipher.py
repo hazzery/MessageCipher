@@ -1,6 +1,10 @@
 """
-Affine Cipher
+Affine Cipher module.
+
+This module defines the AffineCipher class, which is a concrete implementation of the Mod26Cipher class.
+The AffineCipher class uses the affine cipher algorithm to encrypt and decrypt messages.
 """
+
 from Conversions import char_to_int, int_to_char
 from Modulo26_Cipher import Mod26Cipher
 

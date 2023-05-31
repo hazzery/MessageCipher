@@ -1,6 +1,9 @@
 """
-RSA Crypto System
+RSA Crypto System module.
+
+This module defines functions for implementing the RSA encryption and decryption algorithm.
 """
+
 from Abstract_Cipher import AbstractCipher
 from Conversions import *
 import math

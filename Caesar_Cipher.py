@@ -1,5 +1,8 @@
 """
-Caesar Cipher
+Caesar Cipher module.
+
+This module defines the CaesarCipher class, which is a concrete implementation of the Mod26Cipher class.
+The CaesarCipher class uses the Caesar cipher algorithm to encrypt and decrypt messages.
 """
 
 from Conversions import char_to_int, int_to_char

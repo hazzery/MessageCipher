@@ -1,5 +1,7 @@
 """
-Cipher
+Abstract Cipher module.
+
+This module defines the AbstractCipher class, which is an abstract base class for implementing various ciphers.
 """
 
 from abc import ABCMeta, abstractmethod

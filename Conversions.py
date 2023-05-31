@@ -1,3 +1,10 @@
+"""
+Conversions module.
+
+This module defines functions for converting between characters and integers.
+"""
+
+
 def char_to_int(char: str) -> int:
     """
     Converts single character to numerical value
