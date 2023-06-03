@@ -5,12 +5,11 @@ import unittest
 class TestCaesarCipher(unittest.TestCase):
 
     def test_invalid_coefficient(self):
-        with self.assertRaises(ValueError):
-            # coefficients not in range [0, 26)
-            CaesarCipher(26)
-            CaesarCipher(100)
-            CaesarCipher(-1)
-            CaesarCipher(-100)
+        # coefficients not in range [0, 26)
+        self.assertRaises(ValueError, CaesarCipher, 26)
+        self.assertRaises(ValueError, CaesarCipher, 100)
+        self.assertRaises(ValueError, CaesarCipher, -1)
+        self.assertRaises(ValueError, CaesarCipher, -100)
 
     def test_encrypt(self):
         cipher = CaesarCipher(3)
@@ -30,11 +29,7 @@ class TestCaesarCipher(unittest.TestCase):
 
     def test_encrypt_decrypt(self):
         cipher = CaesarCipher(7)
-        plaintext = "HELLO WORLD"
+        plaintext = "Test input with spaces"
         ciphertext = cipher.encrypt(plaintext)
         decrypted_plaintext = cipher.decrypt(ciphertext)
         self.assertEqual(decrypted_plaintext, plaintext.replace(" ", ""))
-
-
-if __name__ == "__main__":
-    unittest.main()

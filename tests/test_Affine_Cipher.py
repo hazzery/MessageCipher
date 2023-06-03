@@ -5,20 +5,28 @@ import unittest
 class TestAffineCipher(unittest.TestCase):
 
     def test_invalid_a_coefficient(self):
-        with self.assertRaises(ValueError):
-            # a coefficients not invertible modulo 26
-            AffineCipher(3, 0)
-            AffineCipher(4, 0)
-            AffineCipher(9, 0)
-            AffineCipher(25, 0)
+        # a coefficients not invertible modulo 26
+        self.assertRaises(ValueError, AffineCipher, 3, 0)
+        self.assertRaises(ValueError, AffineCipher, 4, 0)
+        self.assertRaises(ValueError, AffineCipher, 9, 0)
+        self.assertRaises(ValueError, AffineCipher, 25, 0)
+
+        # invertible coefficients shouldn't throw error
+        AffineCipher(5, 0)
+        AffineCipher(11, 0)
+        AffineCipher(19, 0)
 
     def test_invalid_b_coefficient(self):
-        with self.assertRaises(ValueError):
-            # b coefficients not in range [0, 26)
-            AffineCipher(1, 26)
-            AffineCipher(1, 100)
-            AffineCipher(1, -1)
-            AffineCipher(1, -100)
+        # b coefficients not in range [0, 26)
+        self.assertRaises(ValueError, AffineCipher, 1, 26)
+        self.assertRaises(ValueError, AffineCipher, 1, 100)
+        self.assertRaises(ValueError, AffineCipher, 1, -1)
+        self.assertRaises(ValueError, AffineCipher, 1, -100)
+
+        # correct coefficients shouldn't throw error
+        AffineCipher(1, 0)
+        AffineCipher(1, 13)
+        AffineCipher(1, 25)
 
     def test_encrypt(self):
         cipher = AffineCipher(7, 7)
@@ -35,7 +43,3 @@ class TestAffineCipher(unittest.TestCase):
         expected_plaintext = "HELLOWORLD"
         self.assertEqual(expected_plaintext, cipher.decrypt(ciphertext))
         self.assertEqual(expected_plaintext, cipher.decrypt(ciphertext2))
-
-
-if __name__ == '__main__':
-    unittest.main()
