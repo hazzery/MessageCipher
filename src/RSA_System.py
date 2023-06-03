@@ -63,17 +63,14 @@ class RSA(AbstractCipher):
         if not (is_prime(p) and is_prime(q)):
             raise ValueError("RSA system values `p` and `q` must be prime")
 
-        self.p = p
-        self.q = q
-
         self.n = p * q
-        self.phi_n = (p - 1) * (q - 1)
+        self.__phi_n = (p - 1) * (q - 1)
 
-        self.e = random.choice(invertible_elements(self.phi_n))
+        self.e = random.choice(invertible_elements(self.__phi_n))
 
         self.public_key = (self.n, self.e)
 
-        self.private_key = pow(self.e, -1, self.phi_n)
+        self.__private_key = pow(self.e, -1, self.__phi_n)
 
     def __repr__(self):
         """
@@ -97,7 +94,7 @@ class RSA(AbstractCipher):
         :param num: integer to be decrypted
         :return: string of length 1 containing decrypted letter
         """
-        number = pow(num, self.private_key, self.n)
+        number = pow(num, self.__private_key, self.n)
         return int_to_char(number).upper()
 
     def encrypt(self, plaintext: str) -> list:
