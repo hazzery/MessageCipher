@@ -110,13 +110,14 @@ class RSA(AbstractCipher):
                 ciphertext.append(self._encrypt_char(char))
         return ciphertext
 
-    def decrypt(self, ciphertext: list) -> str:
+    def decrypt(self, cipher_array: list) -> str:
         """
         Decrypts encrypted message using the cipher
-        :param ciphertext: encrypted message to decrypt
+        :param cipher_array: encrypted message to decrypt,
+            message should be a list of integers, as per output of encrypt function
         :return: string of decrypted message
         """
         plaintext = ""
-        for num in ciphertext:
+        for num in cipher_array:
             plaintext += self._decrypt_num(num)
         return plaintext
