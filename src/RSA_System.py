@@ -12,7 +12,7 @@ import math
 
 def is_prime(number: int) -> bool:
     """
-    Calculates all factors of `number` up to `sqrt(number)`
+    Checks all possible factors of `number` up to `sqrt(number)`
     to determine its primality
     :param number: number to check primality of
     :return: `True` if number is prime, otherwise `False`
@@ -20,16 +20,17 @@ def is_prime(number: int) -> bool:
     # code from https://www.programiz.com/python-programming/examples/prime-number
 
     # prime numbers are greater than 1
-    assert number > 1
+    if number <= 1:
+        return False
 
     composite = False
     # check for factors
-    for i in range(2, math.ceil(math.sqrt(number))):
+    for i in range(2, int(math.sqrt(number) + 1)):
         if (number % i) == 0:
             # if factor is found, set flag to True
             composite = True
             break
-    return composite
+    return not composite
 
 
 def invertible_elements(number: int) -> list:
