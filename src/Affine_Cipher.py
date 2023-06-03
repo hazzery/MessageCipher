@@ -5,8 +5,8 @@ This module defines the AffineCipher class, which is a concrete implementation o
 The AffineCipher class uses the affine cipher algorithm to encrypt and decrypt messages.
 """
 
-from Conversions import char_to_int, int_to_char
-from Modulo26_Cipher import Mod26Cipher
+from .Conversions import char_to_int, int_to_char
+from .Modulo26_Cipher import Mod26Cipher
 
 
 def inverse_modulo_26(number: int) -> int:

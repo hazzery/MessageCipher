@@ -4,10 +4,10 @@ RSA Crypto System module.
 This module defines functions for implementing the RSA encryption and decryption algorithm.
 """
 
-from Abstract_Cipher import AbstractCipher
-from Conversions import *
-import math
+from .Conversions import char_to_int, int_to_char
+from .Abstract_Cipher import AbstractCipher
 import random
+import math
 
 
 def is_prime(number: int) -> bool:
