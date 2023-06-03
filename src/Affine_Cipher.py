@@ -1,7 +1,9 @@
 """
 Affine Cipher module.
 
-This module defines the AffineCipher class, which is a concrete implementation of the Mod26Cipher class.
+This module defines the AffineCipher class,
+which is a concrete implementation of the Mod26Cipher class.
+
 The AffineCipher class uses the affine cipher algorithm to encrypt and decrypt messages.
 """
 
