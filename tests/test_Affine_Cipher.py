@@ -50,3 +50,11 @@ class TestAffineCipher(unittest.TestCase):
         expected_plaintext = "HELLOWORLD"
         self.assertEqual(expected_plaintext, cipher.decrypt(ciphertext))
         self.assertEqual(expected_plaintext, cipher.decrypt(ciphertext2))
+
+    def test_encrypt_decrypt(self):
+        """Tests that output of encryption decrypts to its input."""
+        cipher = AffineCipher(11, 19)
+        plaintext = "Test input with spaces"
+        ciphertext = cipher.encrypt(plaintext)
+        decrypted_plaintext = cipher.decrypt(ciphertext)
+        self.assertEqual(decrypted_plaintext, plaintext.upper().replace(" ", ""))
