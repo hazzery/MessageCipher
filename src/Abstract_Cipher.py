@@ -1,7 +1,8 @@
 """
 Abstract Cipher module.
 
-This module defines the AbstractCipher class, which is an abstract base class for implementing various ciphers.
+This module defines the AbstractCipher class,
+which is a purely abstract base class (interface) for implementing various ciphers.
 """
 
 from abc import ABCMeta, abstractmethod
@@ -9,14 +10,14 @@ from typing import Iterable
 
 
 class AbstractCipher(metaclass=ABCMeta):
-    """AbstractCipher acts as an interface for any cipher which can encrypt and decrypt messages"""
+    """AbstractCipher acts as an interface for any cipher which can encrypt and decrypt messages."""
 
     @abstractmethod
     def encrypt(self, plaintext: str):
         """
-        Encrypts a message using the cipher
-        :param plaintext: message to be encrypted
-        :return: string of encrypted message
+        Encrypts a message using the cipher.
+        :param plaintext: A message to be encrypted.
+        :return: The encrypted message.
         """
 
         raise NotImplementedError
@@ -24,8 +25,8 @@ class AbstractCipher(metaclass=ABCMeta):
     @abstractmethod
     def decrypt(self, ciphertext: Iterable):
         """
-        Decrypts encrypted message using the cipher
-        :param ciphertext: encrypted message to decrypt
-        :return: decrypted message
+        Decrypts an encrypted message using the cipher.
+        :param ciphertext: An encrypted message to decrypt.
+        :return: The decrypted message.
         """
         raise NotImplementedError

@@ -7,7 +7,7 @@ import unittest
 
 
 class TestCaesarCipher(unittest.TestCase):
-    """This test suite performs testing on all functionality relevant to the CaesarCipher class"""
+    """This test suite performs testing on all functionality relevant to the CaesarCipher class."""
 
     def test_invalid_coefficient(self):
         """coefficients not in range [0, 26)"""
@@ -17,7 +17,7 @@ class TestCaesarCipher(unittest.TestCase):
         self.assertRaises(ValueError, CaesarCipher, -100)
 
     def test_encrypt(self):
-        """Tests basic string encryption, checking uppercase, lowercase, and white-space"""
+        """Tests basic string encryption, checking uppercase, lowercase, and white-space."""
         cipher = CaesarCipher(3)
         plaintext = "HELLOWORLD"
         plaintext2 = "hello world"
@@ -26,7 +26,7 @@ class TestCaesarCipher(unittest.TestCase):
         self.assertEqual(expected_ciphertext, cipher.encrypt(plaintext2))
 
     def test_decrypt(self):
-        """Tests basic string decryption, checking uppercase, lowercase, and white-space"""
+        """Tests basic string decryption, checking uppercase, lowercase, and white-space."""
         cipher = CaesarCipher(3)
         ciphertext = "KHOORZRUOG"
         ciphertext2 = "khoor zruog"
@@ -35,7 +35,7 @@ class TestCaesarCipher(unittest.TestCase):
         self.assertEqual(expected_plaintext, cipher.decrypt(ciphertext2))
 
     def test_encrypt_decrypt(self):
-        """Tests that output of encryption decrypts to its input"""
+        """Tests that output of encryption decrypts to its input."""
         cipher = CaesarCipher(7)
         plaintext = "Test input with spaces"
         ciphertext = cipher.encrypt(plaintext)
