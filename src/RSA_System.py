@@ -52,11 +52,12 @@ def invertible_elements(number: int) -> list:
 
 
 class RSA(AbstractCipher):
-    def __init__(self, p: int, q: int):
+    def __init__(self, p: int, q: int, e: int = None):
         """
         Initializes a new RSA system with values `p` and `q`
-        :param p: first prime number for RSA system
-        :param q: second prime number for RSA system
+        :param p: First prime number for RSA system
+        :param q: Second prime number for RSA system
+        :param e: The exponent used for encryption (optional)
         :return: An `RSA` object for the given prime numbers
         """
 
@@ -66,7 +67,12 @@ class RSA(AbstractCipher):
         self.n = p * q
         self.__phi_n = (p - 1) * (q - 1)
 
-        self.e = random.choice(invertible_elements(self.__phi_n))
+        if e is None:
+            self.e = random.choice(invertible_elements(self.__phi_n))
+        elif e in invertible_elements(self.__phi_n):
+            self.e = e
+        else:
+            raise ValueError("Specified e value must be invertible modulo phi(n)")
 
         self.public_key = (self.n, self.e)
 
