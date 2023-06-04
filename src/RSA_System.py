@@ -117,11 +117,11 @@ class RSA(AbstractCipher):
         :return: The encrypted message as an array of integers.
         """
 
-        ciphertext = []
+        cipher_array = []
         for char in plaintext:
             if char.isalpha():
-                ciphertext.append(self._encrypt_char(char))
-        return ciphertext
+                cipher_array.append(self._encrypt_char(char))
+        return cipher_array
 
     def decrypt(self, cipher_array: list) -> str:
         """
