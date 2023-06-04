@@ -90,7 +90,7 @@ class RSA(AbstractCipher):
         Creates a string representation of the RSA system.
         :return: A string representation of this RSA system.
         """
-        return f"AffineCipher: {self.public_key}"
+        return f"RSA: {self.public_key}"
 
     def _encrypt_char(self, char: str) -> int:
         """
