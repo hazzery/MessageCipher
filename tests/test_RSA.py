@@ -52,16 +52,31 @@ class TestRSA(unittest.TestCase):
         self.assertRaises(ValueError, RSA, 4, 7)
         self.assertRaises(ValueError, RSA, 5, 8)
 
+        # manually specified e must be invertible modulo phi(n)
+        self.assertRaises(ValueError, RSA, 5, 7, 6)
+        self.assertRaises(ValueError, RSA, 5, 7, 8)
+        self.assertRaises(ValueError, RSA, 5, 7, 16)
+
     def test_encrypt(self):
-        cipher = RSA(5, 7)
+        # manually specified e value not random
+        cipher = RSA(5, 7, 17)
         plaintext = "HELLOWORLD"
         plaintext2 = "hello world"
-        expected_cipher_array = [28, 4, 11, 11, 14, 8, 14, 3, 11, 17]
+        expected_cipher_array = [7, 9, 16, 16, 14, 22, 14, 12, 16, 33]
         self.assertEqual(expected_cipher_array, cipher.encrypt(plaintext))
         self.assertEqual(expected_cipher_array, cipher.encrypt(plaintext2))
 
     def test_decrypt(self):
-        cipher = RSA(5, 7)
-        cipher_array = [28, 4, 11, 11, 14, 8, 14, 3, 11, 17]
+        # manually specified e value not random
+        cipher = RSA(5, 7, 17)
+        cipher_array = [7, 9, 16, 16, 14, 22, 14, 12, 16, 33]
         expected_plaintext = "HELLOWORLD"
         self.assertEqual(expected_plaintext, cipher.decrypt(cipher_array))
+
+    def test_encrypt_decrypt(self):
+        # random e value
+        cipher = RSA(5, 7)
+        plaintext = "Test input with spaces"
+        cipher_array = cipher.encrypt(plaintext)
+        decrypted_plaintext = cipher.decrypt(cipher_array)
+        self.assertEqual(decrypted_plaintext, plaintext.upper().replace(" ", ""))
