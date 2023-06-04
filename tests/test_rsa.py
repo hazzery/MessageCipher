@@ -1,8 +1,9 @@
 """
 RSA system unit testing suite.
 """
-from src.RSA_System import RSA, is_prime, invertible_elements
+
 import unittest
+from src.rsa_system import RSA, is_prime, invertible_elements
 
 
 class TestRSA(unittest.TestCase):
@@ -54,29 +55,29 @@ class TestRSA(unittest.TestCase):
         as well as throwing an error for incorrect input.
         """
 
-        p = 5
-        q = 7
-        rsa = RSA(p, q)
+        prime1 = 5
+        prime2 = 7
+        rsa = RSA(prime1, prime2)
 
-        # n is the product of p and q
-        self.assertEqual(rsa.n, p * q)
+        # product is the product of prime1 and prime2
+        self.assertEqual(rsa.product, prime1 * prime2)
 
-        # e must be invertible modulo phi(n)
-        # the following line would raise an exception if e were not invertible
-        pow(rsa.e, -1, (p - 1) * (q - 1))
+        # exponent must be invertible modulo phi(product)
+        # the following line would raise an exception if exponent were not invertible
+        pow(rsa.exponent, -1, (prime1 - 1) * (prime2 - 1))
 
-        # p and q must both be prime
+        # prime1 and prime2 must both be prime
         self.assertRaises(ValueError, RSA, 4, 7)
         self.assertRaises(ValueError, RSA, 5, 8)
 
-        # manually specified e must be invertible modulo phi(n)
+        # manually specified exponent must be invertible modulo phi(product)
         self.assertRaises(ValueError, RSA, 5, 7, 6)
         self.assertRaises(ValueError, RSA, 5, 7, 8)
         self.assertRaises(ValueError, RSA, 5, 7, 16)
 
     def test_encrypt(self):
         """Tests basic string encryption, checking uppercase, lowercase, and white-space."""
-        cipher = RSA(5, 7, 17)  # manually specified e value not random
+        cipher = RSA(5, 7, 17)  # manually specified exponent value not random
         plaintext = "HELLOWORLD"
         plaintext2 = "hello world"
         expected_cipher_array = [7, 9, 16, 16, 14, 22, 14, 12, 16, 33]
@@ -85,14 +86,14 @@ class TestRSA(unittest.TestCase):
 
     def test_decrypt(self):
         """Tests basic string decryption, checking uppercase, lowercase, and white-space."""
-        cipher = RSA(5, 7, 17)  # manually specified e value not random
+        cipher = RSA(5, 7, 17)  # manually specified exponent value not random
         cipher_array = [7, 9, 16, 16, 14, 22, 14, 12, 16, 33]
         expected_plaintext = "HELLOWORLD"
         self.assertEqual(expected_plaintext, cipher.decrypt(cipher_array))
 
     def test_encrypt_decrypt(self):
         """Tests basic string decryption, checking uppercase, lowercase, and white-space."""
-        cipher = RSA(5, 7)  # random e value
+        cipher = RSA(5, 7)  # random exponent value
         plaintext = "Test input with spaces"
         cipher_array = cipher.encrypt(plaintext)
         decrypted_plaintext = cipher.decrypt(cipher_array)

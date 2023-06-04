@@ -6,8 +6,8 @@ which is a concrete implementation of the Mod26Cipher class.
 The CaesarCipher class uses the Caesar cipher algorithm for encryption and decryption.
 """
 
-from .Conversions import char_to_int, int_to_char
-from .Modulo26_Cipher import Mod26Cipher
+from .conversions import char_to_int, int_to_char
+from .modulo26_cipher import Mod26Cipher
 
 
 class CaesarCipher(Mod26Cipher):

@@ -7,8 +7,8 @@ which is a concrete implementation of the Mod26Cipher class.
 The AffineCipher class uses the Affine cipher algorithm for encryption and decryption.
 """
 
-from .Conversions import char_to_int, int_to_char
-from .Modulo26_Cipher import Mod26Cipher
+from .conversions import char_to_int, int_to_char
+from .modulo26_cipher import Mod26Cipher
 
 
 def inverse_modulo_26(number: int) -> int:
@@ -28,27 +28,28 @@ class AffineCipher(Mod26Cipher):
 
     INVERTIBLE_ELEMENTS = [1, 5, 7, 11, 13, 19, 23]
 
-    def __init__(self, a: int, b: int):
+    def __init__(self, degree_one: int, degree_zero: int):
         """
-        Initializes a new Affine cipher with coefficients `a` and `b`.
-        :param a: The degree one coefficient of the Affine cipher.
-        :param b: The degree zero coefficient of the Affine cipher.
+        Initializes a new Affine cipher with coefficients `degree_one` and `degree_zero`.
+        :param degree_one: The polynomial degree one coefficient of the Affine cipher.
+        :param degree_zero: The polynomial degree zero coefficient of the Affine cipher.
         """
-        if a not in AffineCipher.INVERTIBLE_ELEMENTS:
-            raise ValueError("Affine cipher coefficient 'a' must be invertible modulo 26")
+        if degree_one not in AffineCipher.INVERTIBLE_ELEMENTS:
+            raise ValueError("Affine cipher coefficient 'degree_one' must be invertible modulo 26")
 
-        if not 0 <= b < 26:
-            raise ValueError("Affine cipher coefficient 'b' must be in range `0 <= b < 26`")
+        if not 0 <= degree_zero < 26:
+            raise ValueError("Affine cipher coefficient 'degree_zero'\
+                            must be in range `0 <= degree_zero < 26`")
 
-        self.a = a
-        self.b = b
+        self.degree_one = degree_one
+        self.degree_zero = degree_zero
 
     def __repr__(self):
         """
         Creates a string representation of the cipher.
         :return: An unambiguous string representation of this cipher.
         """
-        return f"AffineCipher({self.a}, {self.b})"
+        return f"AffineCipher({self.degree_one}, {self.degree_zero})"
 
     def _encrypt_char(self, char: str) -> str:
         """
@@ -56,7 +57,7 @@ class AffineCipher(Mod26Cipher):
         :param char: A string of length 1 containing the letter to be encrypted.
         :return: A string of length 1 containing the encrypted letter.
         """
-        number = (char_to_int(char) * self.a + self.b) % 26
+        number = (char_to_int(char) * self.degree_one + self.degree_zero) % 26
         return int_to_char(number)
 
     def _decrypt_char(self, char: str) -> str:
@@ -65,5 +66,5 @@ class AffineCipher(Mod26Cipher):
         :param char: A string of length 1 containing the letter to be decrypted.
         :return: A string of length 1 containing the decrypted letter.
         """
-        number = ((char_to_int(char) - self.b) * inverse_modulo_26(self.b)) % 26
+        number = ((char_to_int(char) - self.degree_zero) * inverse_modulo_26(self.degree_zero)) % 26
         return int_to_char(number)

@@ -5,8 +5,8 @@ This module defines the Mod26Cipher class,
 which is an abstract base class for implementing ciphers that operate on the modulo 26 alphabet.
 """
 
-from .Abstract_Cipher import AbstractCipher
 from abc import ABCMeta, abstractmethod
+from .abstract_cipher import AbstractCipher
 
 
 class Mod26Cipher(AbstractCipher, metaclass=ABCMeta):

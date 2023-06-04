@@ -15,7 +15,7 @@ class AbstractCipher(metaclass=ABCMeta):
     @abstractmethod
     def encrypt(self, plaintext: str):
         """
-        Encrypts a message using the cipher.
+        Encrypts degree_one message using the cipher.
         :param plaintext: A message to be encrypted.
         :return: The encrypted message.
         """

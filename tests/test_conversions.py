@@ -2,8 +2,8 @@
 int-char conversion unit testing suite.
 """
 
-from src.Conversions import int_to_char, char_to_int
 import unittest
+from src.conversions import int_to_char, char_to_int
 
 
 class TestConversions(unittest.TestCase):

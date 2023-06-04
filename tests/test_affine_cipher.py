@@ -2,8 +2,8 @@
 Affine Cipher unit testing suite.
 """
 
-from src.Affine_Cipher import AffineCipher
 import unittest
+from src.affine_cipher import AffineCipher
 
 
 class TestAffineCipher(unittest.TestCase):
@@ -22,7 +22,7 @@ class TestAffineCipher(unittest.TestCase):
         AffineCipher(19, 0)
 
     def test_invalid_b_coefficient(self):
-        """b coefficients not in range [0, 26)."""
+        """degree_zero coefficients not in range [0, 26)."""
         self.assertRaises(ValueError, AffineCipher, 1, 26)
         self.assertRaises(ValueError, AffineCipher, 1, 100)
         self.assertRaises(ValueError, AffineCipher, 1, -1)

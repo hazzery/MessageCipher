@@ -4,10 +4,10 @@ RSA Crypto System module.
 This module defines functions for implementing the RSA encryption and decryption algorithm.
 """
 
-from .Conversions import char_to_int, int_to_char
-from .Abstract_Cipher import AbstractCipher
-import random
 import math
+import random
+from .abstract_cipher import AbstractCipher
+from .conversions import char_to_int, int_to_char
 
 
 def is_prime(number: int) -> bool:
@@ -60,30 +60,30 @@ class RSA(AbstractCipher):
     This implements a simplified version of the RSA encryption algorithm.
     """
 
-    def __init__(self, p: int, q: int, e: int = None):
+    def __init__(self, prime1: int, prime2: int, exponent: int = None):
         """
-        Initializes a new RSA system with values `p` and `q`.
-        :param p: First prime number for RSA system.
-        :param q: Second prime number for RSA system.
-        :param e: The exponent used for encryption (optional).
+        Initializes a new RSA system with values `prime1` and `prime2`.
+        :param prime1: First prime number for RSA system.
+        :param prime2: Second prime number for RSA system.
+        :param exponent: The exponent used for encryption (optional).
         """
 
-        if not (is_prime(p) and is_prime(q)):
-            raise ValueError("RSA system values `p` and `q` must be prime")
+        if not (is_prime(prime1) and is_prime(prime2)):
+            raise ValueError("RSA system values `prime1` and `prime2` must be prime")
 
-        self.n = p * q
-        self.__phi_n = (p - 1) * (q - 1)
+        self.product = prime1 * prime2
+        self.__phi_n = (prime1 - 1) * (prime2 - 1)
 
-        if e is None:
-            self.e = random.choice(invertible_elements(self.__phi_n))
-        elif e in invertible_elements(self.__phi_n):
-            self.e = e
+        if exponent is None:
+            self.exponent = random.choice(invertible_elements(self.__phi_n))
+        elif exponent in invertible_elements(self.__phi_n):
+            self.exponent = exponent
         else:
-            raise ValueError("Specified e value must be invertible modulo phi(n)")
+            raise ValueError("Specified exponent value must be invertible modulo phi(product)")
 
-        self.public_key = (self.n, self.e)
+        self.public_key = (self.product, self.exponent)
 
-        self.__private_key = pow(self.e, -1, self.__phi_n)
+        self.__private_key = pow(self.exponent, -1, self.__phi_n)
 
     def __repr__(self):
         """
@@ -98,7 +98,7 @@ class RSA(AbstractCipher):
         :param char: A string of length 1 containing the letter to be encrypted.
         :return: A string of length 1 containing the encrypted letter.
         """
-        number = pow(char_to_int(char), self.e, self.n)
+        number = pow(char_to_int(char), self.exponent, self.product)
         return number
 
     def _decrypt_num(self, num: int) -> str:
@@ -107,7 +107,7 @@ class RSA(AbstractCipher):
         :param num: An integer to be decrypted.
         :return: A string of length 1 containing the decrypted letter.
         """
-        number = pow(num, self.__private_key, self.n)
+        number = pow(num, self.__private_key, self.product)
         return int_to_char(number).upper()
 
     def encrypt(self, plaintext: str) -> list:
@@ -123,14 +123,14 @@ class RSA(AbstractCipher):
                 cipher_array.append(self._encrypt_char(char))
         return cipher_array
 
-    def decrypt(self, cipher_array: list) -> str:
+    def decrypt(self, ciphertext: list) -> str:
         """
         Decrypts the encrypted message using the RSA system.
-        :param cipher_array: An encrypted message to decrypt.
+        :param ciphertext: An encrypted message to decrypt.
             The message should be a list of integers, as per output of the encrypt function.
         :return: The decrypted message as a string.
         """
         plaintext = ""
-        for num in cipher_array:
+        for num in ciphertext:
             plaintext += self._decrypt_num(num)
         return plaintext

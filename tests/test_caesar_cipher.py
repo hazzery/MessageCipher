@@ -2,8 +2,8 @@
 Caesar Cipher unit testing suite.
 """
 
-from src.Caesar_Cipher import CaesarCipher
 import unittest
+from src.caesar_cipher import CaesarCipher
 
 
 class TestCaesarCipher(unittest.TestCase):

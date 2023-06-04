@@ -4,10 +4,10 @@ Example usage demonstration script
 Simple showcase of the three cipher classes implemented in this project
 """
 
-from src.Abstract_Cipher import AbstractCipher
-from src.Affine_Cipher import AffineCipher
-from src.Caesar_Cipher import CaesarCipher
-from src.RSA_System import RSA
+from src.abstract_cipher import AbstractCipher
+from src.affine_cipher import AffineCipher
+from src.caesar_cipher import CaesarCipher
+from src.rsa_system import RSA
 
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
