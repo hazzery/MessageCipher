@@ -10,6 +10,10 @@ from .Modulo26_Cipher import Mod26Cipher
 
 
 class CaesarCipher(Mod26Cipher):
+    """
+    CaesarCipher performs calculations to encrypt and decrypt strings of alphabetic characters
+    using the infamous Caesar Cipher algorithm
+    """
 
     def __init__(self, shift: int):
         """

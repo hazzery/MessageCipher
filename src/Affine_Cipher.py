@@ -21,6 +21,10 @@ def inverse_modulo_26(number: int) -> int:
 
 
 class AffineCipher(Mod26Cipher):
+    """
+    AffineCipher performs calculations to encrypt and decrypt strings of alphabetic characters
+    using the Affine Cipher algorithm
+    """
 
     INVERTIBLE_ELEMENTS = [1, 5, 7, 11, 13, 19, 23]
 

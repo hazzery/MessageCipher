@@ -10,6 +10,13 @@ from abc import ABCMeta, abstractmethod
 
 
 class Mod26Cipher(AbstractCipher, metaclass=ABCMeta):
+    """
+    Abstract Cipher class that operates exclusively on the english alphabet.
+    Performs calculations to encrypt strings into an array of integers,
+    and then decrypt those arrays back into strings
+
+    This implements a simplified version of the RSA encryption algorithm
+    """
 
     @abstractmethod
     def _encrypt_char(self, char: str) -> str:

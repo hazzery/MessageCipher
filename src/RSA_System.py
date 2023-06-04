@@ -52,6 +52,14 @@ def invertible_elements(number: int) -> list:
 
 
 class RSA(AbstractCipher):
+    """
+    RSA crypto-system class.
+    Performs calculations to encrypt strings into an array of integers,
+    and then decrypt those arrays back into strings
+
+    This implements a simplified version of the RSA encryption algorithm
+    """
+
     def __init__(self, p: int, q: int, e: int = None):
         """
         Initializes a new RSA system with values `p` and `q`

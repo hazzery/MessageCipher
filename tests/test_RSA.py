@@ -1,9 +1,15 @@
+"""
+RSA system unit testing suite.
+"""
 from src.RSA_System import RSA, is_prime, invertible_elements
 import unittest
 
 
 class TestRSA(unittest.TestCase):
+    """This suite tests all functionality relevant to the RSA class"""
+
     def test_is_prime(self):
+        """Prime number input should return `True`"""
         self.assertTrue(is_prime(2))
         self.assertTrue(is_prime(3))
         self.assertTrue(is_prime(5))
@@ -15,6 +21,7 @@ class TestRSA(unittest.TestCase):
         self.assertTrue(is_prime(23))
 
     def test_isnt_prime(self):
+        """Composite number input should return `False`"""
         self.assertFalse(is_prime(-1))
         self.assertFalse(is_prime(1))
         self.assertFalse(is_prime(4))
@@ -27,6 +34,11 @@ class TestRSA(unittest.TestCase):
         self.assertFalse(is_prime(15))
 
     def test_invertible_elements(self):
+        """
+        An invertible element modulo n 'x' is an integer in range [1, n)
+        such that n and x are coprime
+        """
+
         expected_invertible_elements = [1, 2, 3, 4]
         self.assertListEqual(sorted(invertible_elements(5)), expected_invertible_elements)
 
@@ -37,6 +49,11 @@ class TestRSA(unittest.TestCase):
         self.assertListEqual(sorted(invertible_elements(20)), expected_invertible_elements)
 
     def test_init(self):
+        """
+        Class constructor should correctly calculate product and exponent
+        As well as throwing an error upon incorrect input
+        """
+
         p = 5
         q = 7
         rsa = RSA(p, q)
@@ -58,8 +75,8 @@ class TestRSA(unittest.TestCase):
         self.assertRaises(ValueError, RSA, 5, 7, 16)
 
     def test_encrypt(self):
-        # manually specified e value not random
-        cipher = RSA(5, 7, 17)
+        """Tests basic string encryption, checking uppercase, lowercase, and white-space"""
+        cipher = RSA(5, 7, 17)  # manually specified e value not random
         plaintext = "HELLOWORLD"
         plaintext2 = "hello world"
         expected_cipher_array = [7, 9, 16, 16, 14, 22, 14, 12, 16, 33]
@@ -67,15 +84,15 @@ class TestRSA(unittest.TestCase):
         self.assertEqual(expected_cipher_array, cipher.encrypt(plaintext2))
 
     def test_decrypt(self):
-        # manually specified e value not random
-        cipher = RSA(5, 7, 17)
+        """Tests basic string decryption, checking uppercase, lowercase, and white-space"""
+        cipher = RSA(5, 7, 17)  # manually specified e value not random
         cipher_array = [7, 9, 16, 16, 14, 22, 14, 12, 16, 33]
         expected_plaintext = "HELLOWORLD"
         self.assertEqual(expected_plaintext, cipher.decrypt(cipher_array))
 
     def test_encrypt_decrypt(self):
-        # random e value
-        cipher = RSA(5, 7)
+        """Tests basic string decryption, checking uppercase, lowercase, and white-space"""
+        cipher = RSA(5, 7)  # random e value
         plaintext = "Test input with spaces"
         cipher_array = cipher.encrypt(plaintext)
         decrypted_plaintext = cipher.decrypt(cipher_array)

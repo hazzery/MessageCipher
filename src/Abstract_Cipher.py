@@ -9,6 +9,7 @@ from typing import Iterable
 
 
 class AbstractCipher(metaclass=ABCMeta):
+    """AbstractCipher acts as an interface for any cipher which can encrypt and decrypt messages"""
 
     @abstractmethod
     def encrypt(self, plaintext: str):

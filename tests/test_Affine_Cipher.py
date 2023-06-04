@@ -1,11 +1,16 @@
+"""
+Affine Cipher unit testing suite.
+"""
+
 from src.Affine_Cipher import AffineCipher
 import unittest
 
 
 class TestAffineCipher(unittest.TestCase):
+    """This test suite performs testing on all functionality relevant to the AffineCipher class"""
 
     def test_invalid_a_coefficient(self):
-        # a coefficients not invertible modulo 26
+        """a coefficients not invertible modulo 26"""
         self.assertRaises(ValueError, AffineCipher, 3, 0)
         self.assertRaises(ValueError, AffineCipher, 4, 0)
         self.assertRaises(ValueError, AffineCipher, 9, 0)
@@ -17,7 +22,7 @@ class TestAffineCipher(unittest.TestCase):
         AffineCipher(19, 0)
 
     def test_invalid_b_coefficient(self):
-        # b coefficients not in range [0, 26)
+        """b coefficients not in range [0, 26)"""
         self.assertRaises(ValueError, AffineCipher, 1, 26)
         self.assertRaises(ValueError, AffineCipher, 1, 100)
         self.assertRaises(ValueError, AffineCipher, 1, -1)
@@ -29,6 +34,7 @@ class TestAffineCipher(unittest.TestCase):
         AffineCipher(1, 25)
 
     def test_encrypt(self):
+        """Tests basic string encryption, checking uppercase, lowercase, and white-space"""
         cipher = AffineCipher(7, 7)
         plaintext = "HELLOWORLD"
         plaintext2 = "hello world"
@@ -37,6 +43,7 @@ class TestAffineCipher(unittest.TestCase):
         self.assertEqual(expected_ciphertext, cipher.encrypt(plaintext2))
 
     def test_decrypt(self):
+        """Tests basic string decryption, checking uppercase, lowercase, and white-space"""
         cipher = AffineCipher(7, 7)
         ciphertext = "EJGGBFBWGC"
         ciphertext2 = "ejggb fbwgc"

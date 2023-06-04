@@ -1,3 +1,9 @@
+"""
+Example usage demonstration script
+
+Simple showcase of the three cipher classes implemented in this project
+"""
+
 from src.Abstract_Cipher import AbstractCipher
 from src.Affine_Cipher import AffineCipher
 from src.Caesar_Cipher import CaesarCipher
@@ -7,6 +13,10 @@ ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 def test_cipher(cipher: AbstractCipher):
+    """
+    Runs the given cipher with some example input
+    :param cipher: Any of `CaesarCipher`, `AffineCipher`, or `RSA`
+    """
     message = "Super secretive message"
     ciphertext = cipher.encrypt(message)
     plaintext = cipher.decrypt(ciphertext)
