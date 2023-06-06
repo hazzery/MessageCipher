@@ -10,7 +10,7 @@ class TestAffineCipher(unittest.TestCase):
     """This test suite performs testing on all functionality relevant to the AffineCipher class."""
 
     def test_invalid_a_coefficient(self):
-        """A coefficients not invertible modulo 26."""
+        """degree_one coefficients not invertible modulo 26."""
         self.assertRaises(ValueError, AffineCipher, 3, 0)
         self.assertRaises(ValueError, AffineCipher, 4, 0)
         self.assertRaises(ValueError, AffineCipher, 9, 0)
@@ -28,7 +28,7 @@ class TestAffineCipher(unittest.TestCase):
         self.assertRaises(ValueError, AffineCipher, 1, -1)
         self.assertRaises(ValueError, AffineCipher, 1, -100)
 
-        # correct coefficients shouldn't throw error
+        # coefficients within bounds shouldn't throw error
         AffineCipher(1, 0)
         AffineCipher(1, 13)
         AffineCipher(1, 25)
