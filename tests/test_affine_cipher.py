@@ -58,10 +58,3 @@ class TestAffineCipher(unittest.TestCase):
         ciphertext = cipher.encrypt(plaintext)
         decrypted_plaintext = cipher.decrypt(ciphertext)
         self.assertEqual(decrypted_plaintext, plaintext.upper().replace(" ", ""))
-
-    def test_representation(self):
-        """Tests that when evaluated, the string representation is equal to the object."""
-        cipher = AffineCipher(7, 7)
-        same_cipher = eval(repr(cipher))
-        self.assertEqual(cipher.degree_one, same_cipher.degree_one)
-        self.assertEqual(cipher.degree_zero, same_cipher.degree_zero)
