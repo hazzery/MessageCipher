@@ -41,13 +41,13 @@ class TestRSA(unittest.TestCase):
         """
 
         expected_invertible_elements = [1, 2, 3, 4]
-        self.assertListEqual(sorted(invertible_elements(5)), expected_invertible_elements)
+        self.assertListEqual(expected_invertible_elements, sorted(invertible_elements(5)))
 
         expected_invertible_elements = [1, 3, 7, 9]
-        self.assertListEqual(sorted(invertible_elements(10)), expected_invertible_elements)
+        self.assertListEqual(expected_invertible_elements, sorted(invertible_elements(10)))
 
         expected_invertible_elements = [1, 3, 7, 9, 11, 13, 17, 19]
-        self.assertListEqual(sorted(invertible_elements(20)), expected_invertible_elements)
+        self.assertListEqual(expected_invertible_elements, sorted(invertible_elements(20)))
 
     def test_init(self):
         """
@@ -60,7 +60,7 @@ class TestRSA(unittest.TestCase):
         rsa = RSA(prime1, prime2)
 
         # product is the product of prime1 and prime2
-        self.assertEqual(rsa.product, prime1 * prime2)
+        self.assertEqual(prime1 * prime2, rsa.product)
 
         # exponent must be invertible modulo phi(product)
         # the following line would raise an exception if exponent were not invertible
@@ -97,4 +97,4 @@ class TestRSA(unittest.TestCase):
         plaintext = "Test input with spaces"
         cipher_array = cipher.encrypt(plaintext)
         decrypted_plaintext = cipher.decrypt(cipher_array)
-        self.assertEqual(decrypted_plaintext, plaintext.upper().replace(" ", ""))
+        self.assertEqual(plaintext.upper().replace(" ", ""), decrypted_plaintext)

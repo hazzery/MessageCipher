@@ -40,4 +40,4 @@ class TestCaesarCipher(unittest.TestCase):
         plaintext = "Test input with spaces"
         ciphertext = cipher.encrypt(plaintext)
         decrypted_plaintext = cipher.decrypt(ciphertext)
-        self.assertEqual(decrypted_plaintext, plaintext.upper().replace(" ", ""))
+        self.assertEqual(plaintext.upper().replace(" ", ""), decrypted_plaintext)
