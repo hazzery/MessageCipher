@@ -41,3 +41,9 @@ class TestCaesarCipher(unittest.TestCase):
         ciphertext = cipher.encrypt(plaintext)
         decrypted_plaintext = cipher.decrypt(ciphertext)
         self.assertEqual(decrypted_plaintext, plaintext.upper().replace(" ", ""))
+
+    def test_representation(self):
+        """Tests that when evaluated, the string representation is equal to the object."""
+        cipher = CaesarCipher(7)
+        same_cipher = eval(repr(cipher))
+        self.assertEqual(cipher.shift, same_cipher.shift)
