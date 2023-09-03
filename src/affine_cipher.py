@@ -66,5 +66,5 @@ class AffineCipher(Mod26Cipher):
         :param char: A string of length 1 containing the letter to be decrypted.
         :return: A string of length 1 containing the decrypted letter.
         """
-        number = ((char_to_int(char) - self.degree_zero) * inverse_modulo_26(self.degree_zero)) % 26
+        number = ((char_to_int(char) - self.degree_zero) * inverse_modulo_26(self.degree_one)) % 26
         return int_to_char(number)
