@@ -26,7 +26,7 @@ class AffineCipher(Mod26Cipher):
     using the Affine Cipher algorithm.
     """
 
-    INVERTIBLE_ELEMENTS = [1, 5, 7, 11, 13, 19, 23]
+    INVERTIBLE_ELEMENTS = [1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25]
 
     def __init__(self, degree_one: int, degree_zero: int):
         """
