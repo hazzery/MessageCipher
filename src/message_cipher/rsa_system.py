@@ -6,8 +6,10 @@ This module defines functions for implementing the RSA encryption and decryption
 
 import math
 import random
-from .abstract_cipher import AbstractCipher
+
 from .conversions import char_to_int, int_to_char
+from .prime_generator import generate_large_prime
+from .abstract_cipher import AbstractCipher
 
 
 def is_prime(number: int) -> bool:
@@ -60,16 +62,20 @@ class RSA(AbstractCipher):
     This implements a simplified version of the RSA encryption algorithm.
     """
 
-    def __init__(self, prime1: int, prime2: int, exponent: int = None):
+    def __init__(self, prime1: int = None, prime2: int = None, exponent: int = None):
         """
         Initializes a new RSA system with values `prime1` and `prime2`.
-        :param prime1: First prime number for RSA system.
-        :param prime2: Second prime number for RSA system.
+        :param prime1: First prime number for the RSA system.
+        :param prime2: Second prime number for the RSA system.
         :param exponent: The exponent used for encryption (optional).
         """
 
-        if not (is_prime(prime1) and is_prime(prime2)):
-            raise ValueError("RSA system values `prime1` and `prime2` must be prime")
+        if prime1:
+            if not (is_prime(prime1) and is_prime(prime2)):
+                raise ValueError("RSA system values `prime1` and `prime2` must be prime")
+        else:
+            prime1 = generate_large_prime()
+            prime2 = generate_large_prime()
 
         self.product = prime1 * prime2
         self.__phi_n = (prime1 - 1) * (prime2 - 1)
