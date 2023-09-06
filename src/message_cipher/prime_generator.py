@@ -3,6 +3,7 @@ This module provides functionality to generate large prime numbers.
 All code below is improved upon code sourced from:
 https://www.geeksforgeeks.org/how-to-generate-large-prime-numbers-for-rsa-algorithm/
 """
+
 import random
 
 
@@ -17,31 +18,31 @@ first_primes_list = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29,
                      307, 311, 313, 317, 331, 337, 347, 349]
 
 
-def n_bit_random(n: int) -> int:
+def n_bit_random(number_of_bits: int) -> int:
     """
-    Returns a random number between 2^(n-1) + 1 and 2^n - 1
-    :param n: The number of bits to store the random number
-    :return: A random number that is `n` bits long
+    Returns a random number between 2^(number_of_bits-1) + 1 and 2^number_of_bits - 1
+    :param number_of_bits: The number of bits to store the random number
+    :return: A random number that is `number_of_bits` bits long
     """
-    return random.randrange(2 ** (n - 1) + 1, 2 ** n - 1)
+    return random.randrange(2 ** (number_of_bits - 1) + 1, 2 ** number_of_bits - 1)
 
 
-def get_low_level_prime(n: int) -> int:
+def get_low_level_prime(number_of_bits: int) -> int:
     """
     Generate a prime candidate divisible by first primes
-    :param n: The number of bits to store the random number
-    :return: A random prime number that is `n` bits long
+    :param number_of_bits: The number of bits to store the random number
+    :return: A random prime number that is `number_of_bits` bits long
     """
     # Repeat until a number satisfying the test isn't found
     while True:
         # Obtain a random number
-        prime_candidate = n_bit_random(n)
+        prime_candidate = n_bit_random(number_of_bits)
 
         for divisor in first_primes_list:
             if prime_candidate % divisor == 0 and divisor ** 2 <= prime_candidate:
                 break
-            else:  # If no divisor found, return value
-                return prime_candidate
+            # If no divisor found, return value
+            return prime_candidate
 
 
 def is_miller_rabin_passed(miller_rabin_candidate: int) -> bool:
@@ -57,7 +58,7 @@ def is_miller_rabin_passed(miller_rabin_candidate: int) -> bool:
     while even_component % 2 == 0:
         even_component >>= 1
         max_divisions_by_two += 1
-    assert (2 ** max_divisions_by_two * even_component == miller_rabin_candidate - 1)
+    assert 2 ** max_divisions_by_two * even_component == miller_rabin_candidate - 1
 
     def trial_composite(round_tester: int) -> bool:
         if pow(round_tester, even_component, miller_rabin_candidate) == 1:
@@ -71,7 +72,7 @@ def is_miller_rabin_passed(miller_rabin_candidate: int) -> bool:
 
     # Set number of trials here
     number_of_rabin_trials = 20
-    for i in range(number_of_rabin_trials):
+    for _ in range(number_of_rabin_trials):
         round_tester = random.randrange(2, miller_rabin_candidate)
         if trial_composite(round_tester):
             return False
@@ -79,7 +80,7 @@ def is_miller_rabin_passed(miller_rabin_candidate: int) -> bool:
     return True
 
 
-def generate_large_prime():
+def generate_large_prime() -> int:
     """
     Generate a 256 bit prime number
     :return: A large prime number
@@ -88,3 +89,5 @@ def generate_large_prime():
     prime_candidate = get_low_level_prime(num_bits)
     while not is_miller_rabin_passed(prime_candidate):
         prime_candidate = get_low_level_prime(num_bits)
+
+    return prime_candidate
