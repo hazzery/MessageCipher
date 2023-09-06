@@ -6,6 +6,8 @@ https://www.geeksforgeeks.org/how-to-generate-large-prime-numbers-for-rsa-algori
 
 import random
 
+NUMBER_OF_BITS = 12
+
 
 first_primes_list = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29,
                      31, 37, 41, 43, 47, 53, 59, 61, 67,
@@ -85,9 +87,8 @@ def generate_large_prime() -> int:
     Generate a 256 bit prime number
     :return: A large prime number
     """
-    num_bits = 256
-    prime_candidate = get_low_level_prime(num_bits)
+    prime_candidate = get_low_level_prime(NUMBER_OF_BITS)
     while not is_miller_rabin_passed(prime_candidate):
-        prime_candidate = get_low_level_prime(num_bits)
+        prime_candidate = get_low_level_prime(NUMBER_OF_BITS)
 
     return prime_candidate
