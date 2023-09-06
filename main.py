@@ -25,6 +25,10 @@ def test_cipher(cipher: AbstractCipher, message: str):
 
 
 def main():
+    """
+    Simple usage demonstrating capabilities of MessageCipher package
+    """
+    
     message = input("Enter a message to encrypt: ")
     test_cipher(AffineCipher(5, 13), message)
     test_cipher(AffineCipher(7, 19), message)
