@@ -1,6 +1,6 @@
-# AffineCipher
+# MessageCipher
 
-AffineCipher is a hobby project I started whilst studying discrete mathematics
+MessageCipher is a hobby project I started whilst studying discrete mathematics
 in my first year at the University of Canterbury.
 It contains code that implements the Caesar Cipher and Affine Cipher algorithms,
 as well as a very basic implementation of an RSA crypto-system.
