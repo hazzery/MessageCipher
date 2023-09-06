@@ -70,7 +70,7 @@ class RSA(AbstractCipher):
         :param exponent: The exponent used for encryption (optional).
         """
 
-        if prime1:
+        if prime2:
             if not (is_prime(prime1) and is_prime(prime2)):
                 raise ValueError("RSA system values `prime1` and `prime2` must be prime")
         else:
@@ -96,7 +96,7 @@ class RSA(AbstractCipher):
         Creates a string representation of the RSA system.
         :return: A string representation of this RSA system.
         """
-        return f"RSA: {self.public_key}"
+        return f"RSA: ({self.public_key})"
 
     def _encrypt_char(self, char: str) -> int:
         """
