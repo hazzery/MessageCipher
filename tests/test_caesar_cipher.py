@@ -3,7 +3,7 @@ Caesar Cipher unit testing suite.
 """
 
 import unittest
-from src.caesar_cipher import CaesarCipher
+from src.message_cipher.caesar_cipher import CaesarCipher
 
 
 class TestCaesarCipher(unittest.TestCase):

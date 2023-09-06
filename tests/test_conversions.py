@@ -3,7 +3,7 @@ int-char conversion unit testing suite.
 """
 
 import unittest
-from src.conversions import int_to_char, char_to_int
+from src.message_cipher.conversions import int_to_char, char_to_int
 
 
 class TestConversions(unittest.TestCase):

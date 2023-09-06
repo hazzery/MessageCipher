@@ -3,7 +3,7 @@ RSA system unit testing suite.
 """
 
 import unittest
-from src.rsa_system import RSA, is_prime, invertible_elements
+from src.message_cipher.rsa_system import RSA, is_prime, invertible_elements
 
 
 class TestRSA(unittest.TestCase):
