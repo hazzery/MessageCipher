@@ -10,10 +10,9 @@ from src.message_cipher.caesar_cipher import CaesarCipher
 from src.message_cipher.rsa_system import RSA
 
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-message = ""
 
 
-def test_cipher(cipher: AbstractCipher):
+def test_cipher(cipher: AbstractCipher, message: str):
     """
     Runs the given cipher with some example input
     :param cipher: Any of `CaesarCipher`, `AffineCipher`, or `RSA`
@@ -25,13 +24,20 @@ def test_cipher(cipher: AbstractCipher):
     print()
 
 
-if __name__ == '__main__':
+def main():
+    """
+    Simple usage demonstrating capabilities of MessageCipher package
+    """
     message = input("Enter a message to encrypt: ")
-    test_cipher(AffineCipher(5, 13))
-    test_cipher(AffineCipher(7, 19))
+    test_cipher(AffineCipher(5, 13), message)
+    test_cipher(AffineCipher(7, 19), message)
 
-    test_cipher(CaesarCipher(11))
-    test_cipher(CaesarCipher(23))
+    test_cipher(CaesarCipher(11), message)
+    test_cipher(CaesarCipher(23), message)
 
-    test_cipher(RSA(5, 7))
-    test_cipher(RSA(13, 23))
+    test_cipher(RSA(5, 7), message)
+    test_cipher(RSA(13, 23), message)
+
+
+if __name__ == '__main__':
+    main()
