@@ -98,3 +98,11 @@ class TestRSA(unittest.TestCase):
         cipher_array = cipher.encrypt(plaintext)
         decrypted_plaintext = cipher.decrypt(cipher_array)
         self.assertEqual(plaintext.upper().replace(" ", ""), decrypted_plaintext)
+
+    def test_no_arguments(self):
+        """RSA constructed without arguments should generate random primes."""
+        cipher = RSA()
+        plaintext = "some random string whatever"
+        cipher_array = cipher.encrypt(plaintext)
+        decrypted_plaintext = cipher.decrypt(cipher_array)
+        self.assertEqual(plaintext.upper().replace(" ", ""), decrypted_plaintext)
