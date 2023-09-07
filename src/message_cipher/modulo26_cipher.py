@@ -6,10 +6,11 @@ which is an abstract base class for implementing ciphers that operate on the mod
 """
 
 from abc import ABCMeta, abstractmethod
-from .abstract_cipher import AbstractCipher
+from .encrypter import Encrypter
+from .decrypter import Decrypter
 
 
-class Mod26Cipher(AbstractCipher, metaclass=ABCMeta):
+class Mod26Cipher(Encrypter, Decrypter, metaclass=ABCMeta):
     """
     Abstract Cipher class that operates exclusively on the english alphabet.
     Performs calculations to encrypt strings into an array of integers,

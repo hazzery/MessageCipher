@@ -9,7 +9,8 @@ import random
 
 from .conversions import char_to_int, int_to_char
 from .prime_generator import generate_large_prime
-from .abstract_cipher import AbstractCipher
+from .encrypter import Encrypter
+from .decrypter import Decrypter
 
 
 def is_prime(number: int) -> bool:
@@ -53,7 +54,7 @@ def invertible_elements(number: int) -> list:
     return result
 
 
-class RSA(AbstractCipher):
+class RSA(Encrypter, Decrypter):
     """
     RSA crypto-system class.
     Performs calculations to encrypt strings into an array of integers,
