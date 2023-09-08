@@ -38,8 +38,8 @@ class TestRSA(unittest.TestCase):
         """
         An invertible element modulo n 'x' is an integer in range [1, n)
         such that n and x are coprime.
+        Expected invertible elements lists were generated using an online calculator.
         """
-
         expected_invertible_elements = [1, 2, 3, 4]
         self.assertListEqual(expected_invertible_elements, sorted(invertible_elements(5)))
 
