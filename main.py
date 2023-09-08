@@ -4,15 +4,15 @@ Example usage demonstration script
 Simple showcase of the three cipher classes implemented in this project
 """
 
-from src.message_cipher.abstract_cipher import AbstractCipher
 from src.message_cipher.affine_cipher import AffineCipher
 from src.message_cipher.caesar_cipher import CaesarCipher
 from src.message_cipher.rsa_system import RSA
+from src.message_cipher.cipher import Cipher
 
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
-def test_cipher(cipher: AbstractCipher, message: str):
+def test_cipher(cipher: Cipher, message: str):
     """
     Runs the given cipher with some example input
     :param cipher: Any of `CaesarCipher`, `AffineCipher`, or `RSA`
