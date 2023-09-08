@@ -63,7 +63,7 @@ class RSA(Cipher, RsaEncrypter, RsaDecrypter):
     This implements a simplified version of the RSA encryption algorithm.
     """
 
-    def __init__(self, prime1: int = None, prime2: int = None, exponent: int = None):
+    def __init__(self, prime1: int = 0, prime2: int = 0, exponent: int = 0):
         """
         Initializes a new RSA system with values `prime1` and `prime2`.
         :param prime1: First prime number for the RSA system.
