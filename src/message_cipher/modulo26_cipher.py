@@ -6,11 +6,11 @@ which is an abstract base class for implementing ciphers that operate on the mod
 """
 
 from abc import ABCMeta, abstractmethod
-from .encrypter import Encrypter
-from .decrypter import Decrypter
+
+from .cipher import Cipher
 
 
-class Mod26Cipher(Encrypter, Decrypter, metaclass=ABCMeta):
+class Mod26Cipher(Cipher, metaclass=ABCMeta):
     """
     Abstract Cipher class that operates exclusively on the english alphabet.
     Performs calculations to encrypt strings into an array of integers,
@@ -47,7 +47,7 @@ class Mod26Cipher(Encrypter, Decrypter, metaclass=ABCMeta):
         """
         raise NotImplementedError
 
-    def decrypt(self, ciphertext: str) -> str:
+    def decrypt(self, ciphertext: str) -> str:  # type: ignore[override]
         """
         Decrypts the encrypted message using the cipher.
         :param ciphertext: An encrypted message to decrypt.
