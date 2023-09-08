@@ -7,10 +7,10 @@ This module defines functions for implementing the RSA encryption and decryption
 import math
 import random
 
-from .conversions import char_to_int, int_to_char
 from .prime_generator import generate_large_prime
-from .encrypter import Encrypter
-from .decrypter import Decrypter
+from .rsa_encrypter import RsaEncrypter
+from .rsa_decrypter import RsaDecrypter
+from .cipher import Cipher
 
 
 def is_prime(number: int) -> bool:
@@ -54,9 +54,9 @@ def invertible_elements(number: int) -> list:
     return result
 
 
-class RSA(Encrypter, Decrypter):
+class RSA(Cipher, RsaEncrypter, RsaDecrypter):
     """
-    RSA crypto-system class.
+    RSA crypto-system constructor.
     Performs calculations to encrypt strings into an array of integers,
     and then decrypt those arrays back into strings.
 
@@ -78,66 +78,23 @@ class RSA(Encrypter, Decrypter):
             prime1 = generate_large_prime()
             prime2 = generate_large_prime()
 
-        self.product = prime1 * prime2
-        self.__phi_n = (prime1 - 1) * (prime2 - 1)
+        product = prime1 * prime2
+        __phi_n = (prime1 - 1) * (prime2 - 1)
 
-        if exponent is None:
-            self.exponent = random.choice(invertible_elements(self.__phi_n))
-        elif exponent in invertible_elements(self.__phi_n):
-            self.exponent = exponent
-        else:
+        if not exponent:
+            exponent = random.choice(invertible_elements(__phi_n))
+        elif exponent not in invertible_elements(__phi_n):
             raise ValueError("Specified exponent value must be invertible modulo phi(product)")
 
-        self.public_key = (self.product, self.exponent)
+        self.__private_key = pow(exponent, -1, __phi_n)
 
-        self.__private_key = pow(self.exponent, -1, self.__phi_n)
+        RsaEncrypter.__init__(self, product, exponent)
+        RsaDecrypter.__init__(self, product, self.__private_key)
 
-    def __repr__(self):
+    def __iter__(self):
         """
-        Creates a string representation of the RSA system.
-        :return: A string representation of this RSA system.
+        Returns an iterator for this RSA system.
+        :return: An iterator for this RSA system.
         """
-        return f"RSA: ({self.public_key})"
-
-    def _encrypt_char(self, char: str) -> int:
-        """
-        Encrypts a single character using the RSA system.
-        :param char: A string of length 1 containing the letter to be encrypted.
-        :return: A string of length 1 containing the encrypted letter.
-        """
-        number = pow(char_to_int(char), self.exponent, self.product)
-        return number
-
-    def _decrypt_num(self, num: int) -> str:
-        """
-        Decrypts a single character using the RSA system.
-        :param num: An integer to be decrypted.
-        :return: A string of length 1 containing the decrypted letter.
-        """
-        number = pow(num, self.__private_key, self.product)
-        return int_to_char(number).upper()
-
-    def encrypt(self, plaintext: str) -> list:
-        """
-        Encrypts a message using the RSA system.
-        :param plaintext: A message to be encrypted.
-        :return: The encrypted message as an array of integers.
-        """
-
-        cipher_array = []
-        for char in plaintext:
-            if char.isalpha():
-                cipher_array.append(self._encrypt_char(char))
-        return cipher_array
-
-    def decrypt(self, ciphertext: list) -> str:
-        """
-        Decrypts the encrypted message using the RSA system.
-        :param ciphertext: An encrypted message to decrypt.
-            The message should be a list of integers, as per output of the encrypt function.
-        :return: The decrypted message as a string.
-        """
-        plaintext = ""
-        for num in ciphertext:
-            plaintext += self._decrypt_num(num)
-        return plaintext
+        return iter((RsaEncrypter(self.product, self.exponent),
+                     RsaDecrypter(self.product, self.__private_key)))
