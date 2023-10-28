@@ -13,7 +13,7 @@ def char_to_int(char: str) -> int:
     :raises TypeError: If `char` is not a single character (string of length 1).
     :raises ValueError: If `char` is not an english letter.
     """
-    number = ord(char.lower()) - ord('a')
+    number = ord(char.lower()) - ord("a")
 
     if not 0 <= number < 26:
         raise ValueError("char must be a lowercase english letter")
@@ -31,4 +31,4 @@ def int_to_char(number: int) -> str:
     if not 0 <= number < 26:
         raise ValueError("number must be in the range [0, 26)")
 
-    return chr(ord('a') + number)
+    return chr(ord("a") + number)
