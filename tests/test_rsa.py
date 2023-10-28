@@ -41,13 +41,19 @@ class TestRSA(unittest.TestCase):
         Expected invertible elements lists were generated using an online calculator.
         """
         expected_invertible_elements = [1, 2, 3, 4]
-        self.assertListEqual(expected_invertible_elements, sorted(invertible_elements(5)))
+        self.assertListEqual(
+            expected_invertible_elements, sorted(invertible_elements(5))
+        )
 
         expected_invertible_elements = [1, 3, 7, 9]
-        self.assertListEqual(expected_invertible_elements, sorted(invertible_elements(10)))
+        self.assertListEqual(
+            expected_invertible_elements, sorted(invertible_elements(10))
+        )
 
         expected_invertible_elements = [1, 3, 7, 9, 11, 13, 17, 19]
-        self.assertListEqual(expected_invertible_elements, sorted(invertible_elements(20)))
+        self.assertListEqual(
+            expected_invertible_elements, sorted(invertible_elements(20))
+        )
 
     def test_init(self):
         """

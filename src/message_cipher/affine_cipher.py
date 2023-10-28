@@ -35,11 +35,15 @@ class AffineCipher(Mod26Cipher):
         :param degree_zero: The polynomial degree zero coefficient of the Affine cipher.
         """
         if degree_one not in AffineCipher.INVERTIBLE_ELEMENTS:
-            raise ValueError("Affine cipher coefficient 'degree_one' must be invertible modulo 26")
+            raise ValueError(
+                "Affine cipher coefficient 'degree_one' must be invertible modulo 26"
+            )
 
         if not 0 <= degree_zero < 26:
-            raise ValueError("Affine cipher coefficient 'degree_zero'\
-                            must be in range `0 <= degree_zero < 26`")
+            raise ValueError(
+                "Affine cipher coefficient 'degree_zero'\
+                            must be in range `0 <= degree_zero < 26`"
+            )
 
         self.degree_one = degree_one
         self.degree_zero = degree_zero
@@ -66,5 +70,7 @@ class AffineCipher(Mod26Cipher):
         :param char: A string of length 1 containing the letter to be decrypted.
         :return: A string of length 1 containing the decrypted letter.
         """
-        number = ((char_to_int(char) - self.degree_zero) * inverse_modulo_26(self.degree_one)) % 26
+        number = (
+            (char_to_int(char) - self.degree_zero) * inverse_modulo_26(self.degree_one)
+        ) % 26
         return int_to_char(number)

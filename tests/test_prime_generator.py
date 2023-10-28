@@ -5,9 +5,13 @@ Prime generator unit testing suite.
 from time import perf_counter
 import unittest
 
-from src.message_cipher.prime_generator import (n_bit_random, get_low_level_prime,
-                                                is_miller_rabin_passed,
-                                                generate_large_prime, NUMBER_OF_BITS)
+from src.message_cipher.prime_generator import (
+    n_bit_random,
+    get_low_level_prime,
+    is_miller_rabin_passed,
+    generate_large_prime,
+    NUMBER_OF_BITS,
+)
 
 
 class TestPrimeGenerator(unittest.TestCase):
