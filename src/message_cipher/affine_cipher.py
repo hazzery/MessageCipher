@@ -44,7 +44,7 @@ class AffineCipher(Mod26Cipher):
         self.degree_one = degree_one
         self.degree_zero = degree_zero
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         """
         Creates a string representation of the cipher.
         :return: An unambiguous string representation of this cipher.

@@ -30,7 +30,7 @@ class RsaEncrypter(Encrypter):
         number = pow(char_to_int(char), self.exponent, self.product)
         return number
 
-    def encrypt(self, plaintext: str) -> list:
+    def encrypt(self, plaintext: str) -> list[int]:
         """
         Encrypts a message using the RSA system.
         :param plaintext: A message to be encrypted.

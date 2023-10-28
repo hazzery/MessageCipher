@@ -12,7 +12,7 @@ from src.message_cipher.cipher import Cipher
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
-def test_cipher(cipher: Cipher, message: str):
+def test_cipher(cipher: Cipher, message: str) -> None:
     """
     Runs the given cipher with some example input
     :param cipher: Any of `CaesarCipher`, `AffineCipher`, or `RSA`
@@ -24,7 +24,7 @@ def test_cipher(cipher: Cipher, message: str):
     print()
 
 
-def main():
+def main() -> None:
     """
     Simple usage demonstrating capabilities of MessageCipher package
     """

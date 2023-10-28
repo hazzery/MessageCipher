@@ -6,6 +6,7 @@ This module defines functions for implementing the RSA encryption and decryption
 
 import math
 import random
+from typing import Iterator, Any
 
 from .prime_generator import generate_large_prime
 from .rsa_encrypter import RsaEncrypter
@@ -36,7 +37,7 @@ def is_prime(number: int) -> bool:
     return not composite
 
 
-def invertible_elements(number: int) -> list:
+def invertible_elements(number: int) -> list[int]:
     """
     Calculates all numbers invertible modulo `number`.
     :param number: The modulo to find invertible numbers in.
@@ -91,7 +92,7 @@ class RSA(Cipher, RsaEncrypter, RsaDecrypter):
         RsaEncrypter.__init__(self, product, exponent)
         RsaDecrypter.__init__(self, product, self.__private_key)
 
-    def __iter__(self):
+    def __iter__(self) -> Iterator[Any]:
         """
         Returns an iterator for this RSA system.
         :return: An iterator for this RSA system.

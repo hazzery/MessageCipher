@@ -6,7 +6,7 @@ which is a purely abstract base class (interface) for implementing various ciphe
 """
 
 from abc import ABCMeta, abstractmethod
-from typing import Iterable
+from typing import Iterable, Any
 
 
 # pylint: disable=locally-disabled, too-few-public-methods
@@ -14,7 +14,7 @@ class Decrypter(metaclass=ABCMeta):
     """Decrypter acts as an interface for any abject capable of decrypting encrypted messages."""
 
     @abstractmethod
-    def decrypt(self, ciphertext: Iterable):
+    def decrypt(self, ciphertext: Iterable[Any]) -> str:
         """
         Decrypts an encrypted message using the cipher.
         :param ciphertext: An encrypted message to decrypt.

@@ -27,7 +27,7 @@ class CaesarCipher(Mod26Cipher):
 
         self.shift = shift
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         """
         Creates a string representation of the cipher.
         :return: An unambiguous string representation of this cipher.
