@@ -1,4 +1,8 @@
 # MessageCipher
+![unittests passing](https://github.com/hazzery/MessageCipher/actions/workflows/unittests.yml/badge.svg)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/pylint-dev/pylint)
+[![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
 
 MessageCipher is a hobby project I started whilst studying discrete mathematics
 in my first year at the University of Canterbury.
