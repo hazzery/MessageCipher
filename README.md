@@ -15,6 +15,13 @@ to writing code that is easily human understandable, well documented, and mainta
 ## How to run
 
 The main.py file demonstrates very basic usage of this program.
-To execute this file in a terminal, run `python main.py` inside the project directory
+To execute this file in a terminal, run
+```bash
+python3 main.py
+```
+inside the project directory
 
-To instead execute the unit tests, run `python -m unittest discover -s tests` 
+To instead execute the unit tests, run
+```bash
+python3 -m unittest discover -s tests
+```
