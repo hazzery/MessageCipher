@@ -1,5 +1,5 @@
 """
-The cipher module defines the Cipher abstract base class.
+The Cipher module defines the Cipher abstract base class.
 """
 from abc import ABCMeta
 
@@ -9,6 +9,8 @@ from .decrypter import Decrypter
 
 class Cipher(Encrypter, Decrypter, metaclass=ABCMeta):
     """
-    The Cipher class acts as an interface for objects that can both encrypt and decrypt messages.
-    It allows for polymorphism between the different types of ciphers.
+    Cipher is a combination of both an Encrypter and a Decrypter,
+    and simply acts a common interface for objects
+    capable of both encrypting plaintext,
+    and decrypting messages encrypted using the corresponding encrypter
     """
