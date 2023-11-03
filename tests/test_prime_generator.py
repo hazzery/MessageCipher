@@ -15,10 +15,15 @@ from src.message_cipher.prime_generator import (
 
 
 class TestPrimeGenerator(unittest.TestCase):
-    """This suite tests all functionality relevant to the prime generator module."""
+    """
+    This suite tests all functionality relevant to the prime generator module.
+    """
 
-    def test_n_bit_random_size(self):
-        """Test that the n-bit random number generator returns a number of the correct size."""
+    def test_n_bit_random_size(self) -> None:
+        """
+        Test that the n-bit random number generator
+        returns a number of the correct size.
+        """
         # self.assertEqual(2, len(bin(n_bit_random(2))))
         self.assertEqual(4, len(bin(n_bit_random(4))) - 2)
         self.assertEqual(8, len(bin(n_bit_random(8))) - 2)
@@ -28,23 +33,29 @@ class TestPrimeGenerator(unittest.TestCase):
         self.assertEqual(128, len(bin(n_bit_random(128))) - 2)
         self.assertEqual(256, len(bin(n_bit_random(256))) - 2)
 
-    def test_get_low_level_prime_speed(self):
-        """Test that the low-level prime generator is fast enough."""
+    def test_get_low_level_prime_speed(self) -> None:
+        """
+        Test that the low-level prime generator is fast enough.
+        """
         start_time = perf_counter()
         get_low_level_prime(NUMBER_OF_BITS)
         end_time = perf_counter()
         self.assertLess(end_time - start_time, 0.005)
 
-    def test_is_miller_rabin_passed_speed(self):
-        """Test that the Miller-Rabin primality test is fast enough."""
+    def test_is_miller_rabin_passed_speed(self) -> None:
+        """
+        Test that the Miller-Rabin primality test is fast enough.
+        """
         start_time = perf_counter()
         candidate = get_low_level_prime(NUMBER_OF_BITS)
         is_miller_rabin_passed(candidate)
         end_time = perf_counter()
         self.assertLess(end_time - start_time, 0.01)
 
-    def test_generate_large_prime_speed(self):
-        """Test that the large prime generator is fast enough."""
+    def test_generate_large_prime_speed(self) -> None:
+        """
+        Test that the large prime generator is fast enough.
+        """
         start_time = perf_counter()
         generate_large_prime()
         end_time = perf_counter()
