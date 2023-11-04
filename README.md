@@ -14,21 +14,44 @@ as well as a very basic implementation of an RSA crypto-system.
 The primary purpose of displaying this project is to demonstrate my commitment
 to writing code that is easily human understandable, well documented, and maintainable.
 
-## How to run
+## How to use
 
+MessageCipher is intended to be used as a library, not as a standalone program.
+To use MessageCipher in your codebase,
+download the tarball archive from the releases'
+page and place it into your project directory.
+Perhaps into a subdirectory called `lib`.
+Then, from inside your project directory, install the tarball using pip:
+```bash
+pip install lib/MessageCipher-1.2.0.tar.gz
+```
+Make sure to replace `lib/MessageCipher-1.2.0.tar.gz` with the correct path to the tarball.
+
+
+Once installed, you can import from MessageCipher like so:
+```python
+from message_cipher.rsa_system import RSA
+
+public_key, private_key = RSA()
+```
+
+```python
+from message_cipher.rsa_encrypter import RsaEncrypter
+
+product = ...
+exponent = ...
+
+encryption_key = RsaEncrypter(product, exponent)
+```
+
+## Example Usage
 The main.py file demonstrates very basic usage of this program.
-To execute this file in a terminal, run
+To execute this file in a terminal, run the following inside the project directory
 ```bash
 python3 main.py
 ```
-inside the project directory
-
-To instead execute the unit tests, run
-```bash
-python3 -m unittest discover -s tests
-```
 
 # Licence
-This project is licenced under the GNU AGPL version 3
+This project is licenced under version 3 of the GNU AGPL
 
 ![AGPLv3](https://www.gnu.org/graphics/agplv3-with-text-162x68.png)
