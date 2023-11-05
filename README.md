@@ -12,7 +12,7 @@ It contains code that implements the Caesar Cipher and Affine Cipher algorithms,
 as well as a very basic implementation of an RSA crypto-system.
 
 The primary purpose of displaying this project is to demonstrate my commitment
-to writing code that is easily human understandable, well documented, and maintainable.
+to writing code that is easily understandable, well documented, and maintainable.
 
 ## How to use
 
