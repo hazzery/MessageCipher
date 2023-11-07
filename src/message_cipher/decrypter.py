@@ -11,13 +11,15 @@ from typing import Iterable, Any
 
 # pylint: disable=locally-disabled, too-few-public-methods
 class Decrypter(metaclass=ABCMeta):
-    """Decrypter acts as an interface for any abject capable of decrypting encrypted messages."""
+    """
+    Decrypter acts as an interface for any abject
+    capable of decrypting encrypted messages.
+    """
 
     @abstractmethod
     def decrypt(self, ciphertext: Iterable[Any]) -> str:
         """
-        Decrypts an encrypted message using the cipher.
+        Decrypts an encrypted message.
         :param ciphertext: An encrypted message to decrypt.
         :return: The decrypted message.
         """
-        raise NotImplementedError

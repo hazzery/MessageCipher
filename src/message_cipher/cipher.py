@@ -7,6 +7,7 @@ from .encrypter import Encrypter
 from .decrypter import Decrypter
 
 
+# pylint: disable=locally-disabled, too-few-public-methods
 class Cipher(Encrypter, Decrypter, metaclass=ABCMeta):
     """
     Cipher is a combination of both an Encrypter and a Decrypter,

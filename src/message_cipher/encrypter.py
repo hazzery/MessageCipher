@@ -16,9 +16,7 @@ class Encrypter(metaclass=ABCMeta):
     @abstractmethod
     def encrypt(self, plaintext: str) -> Any:
         """
-        Encrypts degree_one message using the cipher.
+        Encrypts the contents of ``plaintext``.
         :param plaintext: A message to be encrypted.
         :return: The encrypted message.
         """
-
-        raise NotImplementedError

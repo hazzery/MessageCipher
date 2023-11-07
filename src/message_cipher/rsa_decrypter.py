@@ -1,7 +1,8 @@
 """
-The RSA decryption module defines the RsaDecrypter class,
-a concrete implementation of the Decrypter class.
-Uses the RSA decryption algorithm to decrypt messages encrypted with the RSA encryption algorithm.
+The RSA decryption module defines the RsaDecrypter class.
+Uses the RSA decryption algorithm to decrypt messages
+in the form of arrays of integers
+encrypted with the RSA encryption algorithm.
 """
 
 from .conversions import int_to_char
@@ -10,7 +11,10 @@ from .decrypter import Decrypter
 
 # pylint: disable=locally-disabled, too-few-public-methods
 class RsaDecrypter(Decrypter):
-    """RsaDecrypter performs calculations to decrypt arrays of integers into string messages"""
+    """
+    RsaDecrypter performs calculations to decrypt
+    arrays of integers into string messages.
+    """
 
     def __init__(self, product: int, private_key: int):
         """
@@ -34,7 +38,8 @@ class RsaDecrypter(Decrypter):
         """
         Decrypts the encrypted message using the RSA system.
         :param ciphertext: An encrypted message to decrypt.
-            The message should be a list of integers, as per output of `RsaEncrypter.encrypt`.
+            The message should be a list of integers,
+            as per output of ``RsaEncrypter.encrypt``.
         :return: The decrypted message as a string.
         """
         plaintext = ""

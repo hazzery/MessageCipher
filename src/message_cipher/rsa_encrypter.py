@@ -1,7 +1,7 @@
 """
 The RSA encryption module defines the RsaEncrypter class,
 a concrete implementation of the Encrypter class.
-Uses the RSA encryption algorithm to encrypt string messages.
+Uses the RSA encryption algorithm to encrypt string messages into arrays of integers.
 """
 
 from .conversions import char_to_int

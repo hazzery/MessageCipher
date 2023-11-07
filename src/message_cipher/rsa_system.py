@@ -1,9 +1,9 @@
 """
 RSA Crypto System module.
 
-This module defines functions for implementing the RSA encryption and decryption algorithm.
+Provides a convenient class that simultaneously acts as both
+an RsaEncrypter and an RsaDecrypter.
 """
-
 import math
 import random
 from typing import Iterator, Any
