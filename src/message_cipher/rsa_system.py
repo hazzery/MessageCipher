@@ -15,9 +15,9 @@ from .cipher import Cipher
 
 
 def is_prime(number: int) -> bool:
-    """
-    Checks all possible factors of `number` up to `sqrt(number)`
+    """Checks all possible factors of `number` up to `sqrt(number)`
     to determine its primality.
+
     :param number: A number to check the primality of.
     :return: `True` if number is prime, otherwise `False`.
     """
@@ -38,8 +38,8 @@ def is_prime(number: int) -> bool:
 
 
 def invertible_elements(number: int) -> list[int]:
-    """
-    Calculates all numbers invertible modulo `number`.
+    """Calculates all numbers invertible modulo `number`.
+
     :param number: The modulo to find invertible numbers in.
     :return: A list of all invertible elements.
     """
@@ -56,8 +56,7 @@ def invertible_elements(number: int) -> list[int]:
 
 
 class RSA(Cipher, RsaEncrypter, RsaDecrypter):
-    """
-    RSA crypto-system constructor.
+    """RSA crypto-system constructor.
     Performs calculations to encrypt strings into an array of integers,
     and then decrypt those arrays back into strings.
 
@@ -65,8 +64,8 @@ class RSA(Cipher, RsaEncrypter, RsaDecrypter):
     """
 
     def __init__(self, prime1: int = 0, prime2: int = 0, exponent: int = 0):
-        """
-        Initializes a new RSA system with values `prime1` and `prime2`.
+        """Initializes a new RSA system with values `prime1` and `prime2`.
+
         :param prime1: First prime number for the RSA system.
         :param prime2: Second prime number for the RSA system.
         :param exponent: The exponent used for encryption (optional).
@@ -97,8 +96,8 @@ class RSA(Cipher, RsaEncrypter, RsaDecrypter):
         RsaDecrypter.__init__(self, product, self.__private_key)
 
     def __iter__(self) -> Iterator[Any]:
-        """
-        Returns an iterator for this RSA system.
+        """Returns an iterator for this RSA system.
+
         :return: An iterator for this RSA system.
         """
         return iter(

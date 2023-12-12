@@ -11,14 +11,13 @@ from .modulo26_cipher import Mod26Cipher
 
 
 class CaesarCipher(Mod26Cipher):
-    """
-    CaesarCipher performs calculations to encrypt and decrypt strings of alphabetic characters
-    using the infamous Caesar Cipher algorithm.
+    """CaesarCipher performs calculations to encrypt and decrypt strings of
+    alphabetic characters using the infamous Caesar Cipher algorithm.
     """
 
     def __init__(self, shift: int):
-        """
-        Initializes a new Caesar cipher with shift of `shift`.
+        """Initializes a new Caesar cipher with shift of `shift`.
+
         :param shift: The number of letters to shift the alphabet by.
         """
 
@@ -28,15 +27,15 @@ class CaesarCipher(Mod26Cipher):
         self.shift = shift
 
     def __repr__(self) -> str:
-        """
-        Creates a string representation of the cipher.
+        """Creates a string representation of the cipher.
+
         :return: An unambiguous string representation of this cipher.
         """
         return f"CaesarCipher({self.shift})"
 
     def _encrypt_char(self, char: str) -> str:
-        """
-        Encrypts a single character using the caesar cipher.
+        """Encrypts a single character using the caesar cipher.
+
         :param char: A string of length 1 containing the letter to be encrypted.
         :return: A string of length 1 containing the encrypted letter.
         """
@@ -44,8 +43,8 @@ class CaesarCipher(Mod26Cipher):
         return int_to_char(number)
 
     def _decrypt_char(self, char: str) -> str:
-        """
-        Decrypts a single character using the caesar cipher.
+        """Decrypts a single character using the caesar cipher.
+
         :param char: A string of length 1 containing the letter to be decrypted.
         :return: A string of length 1 containing the decrypted letter.
         """

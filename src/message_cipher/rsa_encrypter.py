@@ -13,8 +13,8 @@ class RsaEncrypter(Encrypter):
     """RsaEncrypter performs calculations to encrypt string messages"""
 
     def __init__(self, product: int, exponent: int):
-        """
-        Initializes a new RSA decrypter with specified `exponent` and `product`.
+        """Initializes a new RSA decrypter with specified `exponent` and `product`.
+
         :param product: The product of two large prime numbers.
         :param exponent: The exponent used for encryption.
         """
@@ -22,8 +22,8 @@ class RsaEncrypter(Encrypter):
         self.product = product
 
     def _encrypt_char(self, char: str) -> int:
-        """
-        Encrypts a single character using the RSA system.
+        """Encrypts a single character using the RSA system.
+
         :param char: A string of length 1 containing the letter to be encrypted.
         :return: A string of length 1 containing the encrypted letter.
         """
@@ -31,8 +31,8 @@ class RsaEncrypter(Encrypter):
         return number
 
     def encrypt(self, plaintext: str) -> list[int]:
-        """
-        Encrypts a message using the RSA system.
+        """Encrypts a message using the RSA system.
+
         :param plaintext: A message to be encrypted.
         :return: The encrypted message as an array of integers.
         """
