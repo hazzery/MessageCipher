@@ -12,8 +12,8 @@ from .modulo26_cipher import Mod26Cipher
 
 
 def inverse_modulo_26(number: int) -> int:
-    """
-    Calculates the multiplicative inverse of `number` modulo 26.
+    """Calculates the multiplicative inverse of `number` modulo 26.
+
     :param number: A number to calculate the inverse of.
     :return: The multiplicative inverse of number.
     """
@@ -21,16 +21,16 @@ def inverse_modulo_26(number: int) -> int:
 
 
 class AffineCipher(Mod26Cipher):
-    """
-    AffineCipher performs calculations to encrypt and decrypt strings of alphabetic characters
-    using the Affine Cipher algorithm.
+    """AffineCipher performs calculations to encrypt and decrypt strings
+    of alphabetic characters using the Affine Cipher algorithm.
     """
 
     INVERTIBLE_ELEMENTS = [1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25]
 
     def __init__(self, degree_one: int, degree_zero: int):
-        """
-        Initializes a new Affine cipher with coefficients `degree_one` and `degree_zero`.
+        """Initializes a new Affine cipher with coefficients
+        ``degree_one`` and ``degree_zero``.
+
         :param degree_one: The polynomial degree one coefficient of the Affine cipher.
         :param degree_zero: The polynomial degree zero coefficient of the Affine cipher.
         """
@@ -49,15 +49,15 @@ class AffineCipher(Mod26Cipher):
         self.degree_zero = degree_zero
 
     def __repr__(self) -> str:
-        """
-        Creates a string representation of the cipher.
+        """Creates a string representation of the cipher.
+
         :return: An unambiguous string representation of this cipher.
         """
         return f"AffineCipher({self.degree_one}, {self.degree_zero})"
 
     def _encrypt_char(self, char: str) -> str:
-        """
-        Encrypts a single character using the affine cipher.
+        """Encrypts a single character using the affine cipher.
+
         :param char: A string of length 1 containing the letter to be encrypted.
         :return: A string of length 1 containing the encrypted letter.
         """
@@ -65,8 +65,8 @@ class AffineCipher(Mod26Cipher):
         return int_to_char(number)
 
     def _decrypt_char(self, char: str) -> str:
-        """
-        Decrypts a single character using the affine cipher.
+        """Decrypts a single character using the affine cipher.
+
         :param char: A string of length 1 containing the letter to be decrypted.
         :return: A string of length 1 containing the decrypted letter.
         """

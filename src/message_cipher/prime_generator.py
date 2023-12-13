@@ -84,18 +84,18 @@ first_primes_list = [
 
 
 def n_bit_random(number_of_bits: int) -> int:
-    """
-    Returns a random number between 2^(number_of_bits-1) + 1 and 2^number_of_bits - 1
-    :param number_of_bits: The number of bits to store the random number
+    """Returns a random number between 2^(number_of_bits-1) + 1 and 2^number_of_bits - 1
+
+    :param number_of_bits: The desired size (in binary bits) of the random number
     :return: A random number that is `number_of_bits` bits long
     """
     return random.randrange(2 ** (number_of_bits - 1) + 1, 2**number_of_bits - 1)
 
 
 def get_low_level_prime(number_of_bits: int) -> int:
-    """
-    Generate a prime candidate divisible by first primes
-    :param number_of_bits: The number of bits to store the random number
+    """Generate a prime candidate divisible by first primes
+
+    :param number_of_bits: The desired size (in binary bits) of the random number
     :return: A random prime number that is `number_of_bits` bits long
     """
     # Repeat until a number satisfying the test isn't found
@@ -111,8 +111,8 @@ def get_low_level_prime(number_of_bits: int) -> int:
 
 
 def is_miller_rabin_passed(miller_rabin_candidate: int) -> bool:
-    """
-    Run 20 iterations of Rabin Miller Primality test
+    """Run 20 iterations of Rabin Miller Primality test
+
     :param miller_rabin_candidate: The number to test for primality
     :return: `True` if the number is probably prime, otherwise `False`
     """
@@ -148,8 +148,8 @@ def is_miller_rabin_passed(miller_rabin_candidate: int) -> bool:
 
 
 def generate_large_prime() -> int:
-    """
-    Generate a 256 bit prime number
+    """Generate a ``NUMBER_OF_BITS``-bit prime number
+
     :return: A large prime number
     """
     prime_candidate = get_low_level_prime(NUMBER_OF_BITS)
