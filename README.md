@@ -17,15 +17,17 @@ to writing code that is easily understandable, well documented, and maintainable
 ## How to use
 
 MessageCipher is intended to be used as a library, not as a standalone program.
-To use MessageCipher in your codebase,
-download the tarball archive from the releases'
-page and place it into your project directory.
-Perhaps into a subdirectory called `lib`.
-Then, from inside your project directory, install the tarball using pip:
+To use MessageCipher in your codebase, you need to install it using pip.
+This can be done one of two ways, either by directly cloning the git repository:
 ```bash
-pip install lib/MessageCipher-1.2.0.tar.gz
+pip install message_cipher@git+https://github.com/hazzery/MessageCipher.git
 ```
-Make sure to replace `lib/MessageCipher-1.2.0.tar.gz` with the correct path to the tarball.
+Or by installing from a tarball archive (available for download from the releases page).
+```bash
+pip install /path/to/MessageCipher-1.2.0.tar.gz
+```
+Make sure to replace `/path/to/MessageCipher-1.2.0.tar.gz` with the correct path to the archive
+you downloaded from GitHub.
 
 
 Once installed, you can import from MessageCipher like so:
