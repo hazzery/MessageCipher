@@ -10,7 +10,7 @@ Welcome to MessageCipher's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   modules
+   _sources/message_cipher
 
 
 Indices and tables
