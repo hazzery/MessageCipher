@@ -148,7 +148,7 @@ def is_miller_rabin_passed(miller_rabin_candidate: int) -> bool:
 
 
 def generate_large_prime() -> int:
-    """Generate a ``NUMBER_OF_BITS``bit prime number.
+    """Generate a ``NUMBER_OF_BITS``-bit prime number.
 
     :return: A large prime number.
     """
