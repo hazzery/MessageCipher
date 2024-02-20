@@ -13,7 +13,7 @@ class RsaEncrypter(Encrypter):
     """RsaEncrypter performs calculations to encrypt string messages"""
 
     def __init__(self, product: int, exponent: int):
-        """Initializes a new RSA decrypter with specified `exponent` and `product`.
+        """Initializes a new RSA decrypter with specified ``exponent`` and ``product``.
 
         :param product: The product of two large prime numbers.
         :param exponent: The exponent used for encryption.

@@ -15,11 +15,11 @@ from .cipher import Cipher
 
 
 def is_prime(number: int) -> bool:
-    """Checks all possible factors of `number` up to `sqrt(number)`
+    """Checks all possible factors of ``number`` up to ``sqrt(number)``
     to determine its primality.
 
     :param number: A number to check the primality of.
-    :return: `True` if number is prime, otherwise `False`.
+    :return: ``True`` if number is prime, otherwise ``False``.
     """
     # code from https://www.programiz.com/python-programming/examples/prime-number
 
@@ -31,14 +31,14 @@ def is_prime(number: int) -> bool:
     # check for factors
     for i in range(2, int(math.sqrt(number) + 1)):
         if (number % i) == 0:
-            # if a factor is found, set the flag to `True`
+            # if a factor is found, set the flag to ``True``
             composite = True
             break
     return not composite
 
 
 def invertible_elements(number: int) -> list[int]:
-    """Calculates all numbers invertible modulo `number`.
+    """Calculates all numbers invertible modulo ``number``.
 
     :param number: The modulo to find invertible numbers in.
     :return: A list of all invertible elements.
@@ -64,7 +64,7 @@ class RSA(Cipher, RsaEncrypter, RsaDecrypter):
     """
 
     def __init__(self, prime1: int = 0, prime2: int = 0, exponent: int = 0):
-        """Initializes a new RSA system with values `prime1` and `prime2`.
+        """Initializes a new RSA system with values ``prime1`` and ``prime2``.
 
         :param prime1: First prime number for the RSA system.
         :param prime2: Second prime number for the RSA system.

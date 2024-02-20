@@ -16,7 +16,7 @@ class CaesarCipher(Mod26Cipher):
     """
 
     def __init__(self, shift: int):
-        """Initializes a new Caesar cipher with shift of `shift`.
+        """Initializes a new Caesar cipher with shift of ``shift``.
 
         :param shift: The number of letters to shift the alphabet by.
         """

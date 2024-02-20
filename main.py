@@ -13,9 +13,9 @@ ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 def test_cipher(cipher: Cipher, message: str) -> None:
-    """
-    Runs the given cipher with some example input
-    :param cipher: Any of `CaesarCipher`, `AffineCipher`, or `RSA`
+    """Runs the given cipher with some example input.
+
+    :param cipher: Any of ``CaesarCipher``, ``AffineCipher``, or ``RSA``.
     """
     ciphertext = cipher.encrypt(message)
     plaintext = cipher.decrypt(ciphertext)
@@ -25,9 +25,7 @@ def test_cipher(cipher: Cipher, message: str) -> None:
 
 
 def main() -> None:
-    """
-    Simple usage demonstrating capabilities of MessageCipher package
-    """
+    """Simple usage demonstrating capabilities of MessageCipher package."""
     message = input("Enter a message to encrypt: ")
     test_cipher(AffineCipher(5, 13), message)
     test_cipher(AffineCipher(7, 19), message)

@@ -12,7 +12,7 @@ from .modulo26_cipher import Mod26Cipher
 
 
 def inverse_modulo_26(number: int) -> int:
-    """Calculates the multiplicative inverse of `number` modulo 26.
+    """Calculates the multiplicative inverse of ``number`` modulo 26.
 
     :param number: A number to calculate the inverse of.
     :return: The multiplicative inverse of number.
