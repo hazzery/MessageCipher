@@ -12,8 +12,8 @@ from .cipher import Cipher
 
 class Mod26Cipher(Cipher, metaclass=ABCMeta):
     """Abstract Cipher class that operates exclusively on the english alphabet.
-    Performs calculations to encrypt strings into an array of integers,
-    and then decrypt those arrays back into strings.
+    Performs calculations to encrypt strings into ciphertext
+    and then decrypt encrypted strings back to the original alphabet.
     """
 
     @abstractmethod
