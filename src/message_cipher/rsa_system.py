@@ -4,6 +4,7 @@ RSA Crypto System module.
 Provides a convenient class that simultaneously acts as both
 an RsaEncrypter and an RsaDecrypter.
 """
+
 import math
 import random
 from typing import Iterator, Any

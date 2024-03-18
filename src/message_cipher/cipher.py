@@ -1,6 +1,7 @@
 """
 The Cipher module defines the Cipher abstract base class.
 """
+
 from abc import ABCMeta
 
 from .encrypter import Encrypter
