@@ -1,13 +1,12 @@
-"""
-Example usage demonstration script
+"""Example usage demonstration script.
 
 Simple showcase of the three cipher classes implemented in this project
 """
 
-from src.message_cipher.affine_cipher import AffineCipher
-from src.message_cipher.caesar_cipher import CaesarCipher
-from src.message_cipher.rsa_system import RSA
-from src.message_cipher.cipher import Cipher
+from message_cipher.affine_cipher import AffineCipher
+from message_cipher.caesar_cipher import CaesarCipher
+from message_cipher.rsa_system import RSA
+from message_cipher.cipher import Cipher
 
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -25,7 +24,7 @@ def test_cipher(cipher: Cipher, message: str) -> None:
 
 
 def main() -> None:
-    """Simple usage demonstrating capabilities of MessageCipher package."""
+    """Demonstrate the capabilities of MessageCipher package."""
     message = input("Enter a message to encrypt: ")
     test_cipher(AffineCipher(5, 13), message)
     test_cipher(AffineCipher(7, 19), message)
