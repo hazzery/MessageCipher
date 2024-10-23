@@ -31,7 +31,7 @@ jobs:
 
     - name: Run all unit tests
       run: |
-        coverage run --source=src -m unittest discover -s tests
+        coverage run --source=message_cipher -m unittest discover -s tests
         coverage xml
 
     - name: Upload coverage reports to Codecov
