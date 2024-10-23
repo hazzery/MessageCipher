@@ -85,12 +85,12 @@ first_primes_list = [
 
 
 def n_bit_random(number_of_bits: int) -> int:
-    """Return a random number between ``2^(number_of_bits - 1) + 1`` and ``2^number_of_bits - 1``.
+    """Return a random number between ``2^(number_of_bits - 1)`` and ``2^number_of_bits - 1``.
 
     :param number_of_bits: The desired size (in binary bits) of the random number.
     :return: A random number that is ``number_of_bits`` bits long.
     """
-    return random.randrange(2 ** (number_of_bits - 1) + 1, 2**number_of_bits - 1)
+    return random.randrange(2 ** (number_of_bits - 1), 2**number_of_bits - 1)
 
 
 def get_low_level_prime(number_of_bits: int) -> int:
