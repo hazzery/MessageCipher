@@ -1,7 +1,7 @@
 """Caesar Cipher unit testing suite."""
 
 import unittest
-from src.message_cipher.caesar_cipher import CaesarCipher
+from message_cipher.caesar_cipher import CaesarCipher
 
 
 class TestCaesarCipher(unittest.TestCase):

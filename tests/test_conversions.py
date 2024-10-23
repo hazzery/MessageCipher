@@ -1,7 +1,7 @@
 """Integer to character conversion unit testing suite."""
 
 import unittest
-from src.message_cipher.conversions import int_to_char, char_to_int
+from message_cipher.conversions import int_to_char, char_to_int
 
 
 class TestConversions(unittest.TestCase):

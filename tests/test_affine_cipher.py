@@ -1,7 +1,7 @@
 """Affine Cipher unit testing suite."""
 
 import unittest
-from src.message_cipher.affine_cipher import AffineCipher
+from message_cipher.affine_cipher import AffineCipher
 
 
 class TestAffineCipher(unittest.TestCase):
