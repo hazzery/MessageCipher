@@ -17,7 +17,7 @@ class TestPrimeGenerator(unittest.TestCase):
 
     def test_n_bit_random_size(self) -> None:
         """Test that the n-bit random number generator returns a number of the correct size."""
-        self.assertEqual(2, len(bin(n_bit_random(2))))
+        self.assertEqual(2, len(bin(n_bit_random(2))) - 2)
         self.assertEqual(4, len(bin(n_bit_random(4))) - 2)
         self.assertEqual(8, len(bin(n_bit_random(8))) - 2)
         self.assertEqual(16, len(bin(n_bit_random(16))) - 2)
