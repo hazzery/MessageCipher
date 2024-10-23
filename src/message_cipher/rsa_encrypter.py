@@ -1,4 +1,5 @@
-"""
+"""RSA Encryption module.
+
 The RSA encryption module defines the RsaEncrypter class,
 a concrete implementation of the Encrypter class.
 Uses the RSA encryption algorithm to encrypt string messages into arrays of integers.
@@ -13,7 +14,7 @@ class RsaEncrypter(Encrypter):
     """RsaEncrypter performs calculations to encrypt string messages."""
 
     def __init__(self, product: int, exponent: int):
-        """Initialises a new RSA decrypter with specified ``exponent`` and ``product``.
+        """Initialise a new RSA decrypter with specified ``exponent`` and ``product``.
 
         :param product: The product of two large prime numbers.
         :param exponent: The exponent used for encryption.

@@ -1,5 +1,4 @@
-"""
-Caesar Cipher module.
+"""Caesar Cipher module.
 
 This module defines the CaesarCipher class,
 which is a concrete implementation of the Mod26Cipher class.
@@ -11,23 +10,20 @@ from .modulo26_cipher import Mod26Cipher
 
 
 class CaesarCipher(Mod26Cipher):
-    """CaesarCipher performs calculations to encrypt and decrypt strings of
-    alphabetic characters using the infamous Caesar Cipher algorithm.
-    """
+    """Encrypy and decrypt alphabetic text using the Ceasar Cipher algorithm."""
 
     def __init__(self, shift: int):
-        """Initializes a new Caesar cipher with shift of ``shift``.
+        """Initialize a new Caesar cipher with shift of ``shift``.
 
         :param shift: The number of letters to shift the alphabet by.
         """
-
-        if not 0 <= shift < 26:
+        if not 0 <= shift < Mod26Cipher.NUMBER_OF_LETTERS_IN_ALPHABET:
             raise ValueError("Caesar cipher shift must be in range `0 <= shift < 26`")
 
         self.shift = shift
 
     def __repr__(self) -> str:
-        """Creates a string representation of the cipher.
+        """Create a string representation of the cipher.
 
         :return: An unambiguous string representation of this cipher.
         """

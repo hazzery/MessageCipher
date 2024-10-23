@@ -1,4 +1,5 @@
-"""
+"""RSA Decryprtion module.
+
 The RSA decryption module defines the RsaDecrypter class.
 Uses the RSA decryption algorithm to decrypt messages
 in the form of arrays of integers
@@ -11,14 +12,14 @@ from .decrypter import Decrypter
 
 # pylint: disable=locally-disabled, too-few-public-methods
 class RsaDecrypter(Decrypter):
-    """
+    """RSA Decryption.
+
     RsaDecrypter performs calculations to decrypt
     arrays of integers into string messages.
     """
 
     def __init__(self, product: int, private_key: int):
-        """Initializes a new RSA decryption system with values
-        ``product`` and ``private_key``.
+        """Initialize a new RSA decryption system with values ``product`` and ``private_key``.
 
         :param product: The product of two large prime numbers.
         :param private_key: The private key used for decryption.

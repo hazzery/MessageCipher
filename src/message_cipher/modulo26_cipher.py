@@ -1,5 +1,4 @@
-"""
-Modulo 26 Cipher module.
+"""Modulo 26 Cipher module.
 
 This module defines the Mod26Cipher class,
 which is an abstract base class for implementing ciphers that operate on the modulo 26 alphabet.
@@ -11,10 +10,14 @@ from .cipher import Cipher
 
 
 class Mod26Cipher(Cipher, metaclass=ABCMeta):
-    """Abstract Cipher class that operates exclusively on the english alphabet.
+    """Modulo 26 Cipher.
+
+    Abstract Cipher class that operates exclusively on the english alphabet.
     Performs calculations to encrypt strings into ciphertext
     and then decrypt encrypted strings back to the original alphabet.
     """
+
+    NUMBER_OF_LETTERS_IN_ALPHABET = 26
 
     @abstractmethod
     def _encrypt_char(self, char: str) -> str:

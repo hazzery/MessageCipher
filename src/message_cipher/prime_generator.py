@@ -1,4 +1,5 @@
-"""
+"""Prime number generation module.
+
 This module provides functionality to generate large prime numbers.
 All code below is improved upon code sourced from:
 https://www.geeksforgeeks.org/how-to-generate-large-prime-numbers-for-rsa-algorithm/
@@ -84,7 +85,7 @@ first_primes_list = [
 
 
 def n_bit_random(number_of_bits: int) -> int:
-    """Returns a random number between ``2^(number_of_bits - 1) + 1`` and ``2^number_of_bits - 1``
+    """Return a random number between ``2^(number_of_bits - 1) + 1`` and ``2^number_of_bits - 1``.
 
     :param number_of_bits: The desired size (in binary bits) of the random number.
     :return: A random number that is ``number_of_bits`` bits long.
@@ -116,7 +117,6 @@ def is_miller_rabin_passed(miller_rabin_candidate: int) -> bool:
     :param miller_rabin_candidate: The number to test for primality.
     :return: ``True`` if the number is probably prime, otherwise ``False``
     """
-
     max_divisions_by_two = 0
     even_component = miller_rabin_candidate - 1
 

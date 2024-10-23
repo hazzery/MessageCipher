@@ -1,5 +1,4 @@
-"""
-Abstract encrypter module.
+"""Abstract encrypter module.
 
 This module defines the Decrypter class,
 which is a purely abstract base class (interface) for implementing various ciphers.

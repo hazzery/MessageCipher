@@ -1,5 +1,4 @@
-"""
-Abstract decrypter module.
+"""Abstract decrypter module.
 
 This module defines the Decrypter class,
 which is a purely abstract base class (interface) for implementing various ciphers.
@@ -11,9 +10,7 @@ from typing import Iterable, Any
 
 # pylint: disable=locally-disabled, too-few-public-methods
 class Decrypter(metaclass=ABCMeta):
-    """Decrypter acts as an interface for any abject
-    capable of decrypting encrypted messages.
-    """
+    """Decrypter acts as an interface for any abject capable of decrypting encrypted messages."""
 
     @abstractmethod
     def decrypt(self, ciphertext: Iterable[Any]) -> str:
