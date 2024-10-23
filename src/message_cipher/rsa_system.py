@@ -16,7 +16,8 @@ from .cipher import Cipher
 
 
 def is_prime(number: int) -> bool:
-    """Checks all possible factors of ``number`` up to ``sqrt(number)``
+    """Determine whether a number is prime.
+    Check all possible factors of ``number`` up to ``sqrt(number)``
     to determine its primality.
 
     :param number: A number to check the primality of.

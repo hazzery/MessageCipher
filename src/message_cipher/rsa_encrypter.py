@@ -10,10 +10,10 @@ from .encrypter import Encrypter
 
 # pylint: disable=locally-disabled, too-few-public-methods
 class RsaEncrypter(Encrypter):
-    """RsaEncrypter performs calculations to encrypt string messages"""
+    """RsaEncrypter performs calculations to encrypt string messages."""
 
     def __init__(self, product: int, exponent: int):
-        """Initializes a new RSA decrypter with specified ``exponent`` and ``product``.
+        """Initialises a new RSA decrypter with specified ``exponent`` and ``product``.
 
         :param product: The product of two large prime numbers.
         :param exponent: The exponent used for encryption.
@@ -31,12 +31,11 @@ class RsaEncrypter(Encrypter):
         return number
 
     def encrypt(self, plaintext: str) -> list[int]:
-        """Encrypts a message using the RSA system.
+        """Encrypt a message using the RSA system.
 
         :param plaintext: A message to be encrypted.
         :return: The encrypted message as an array of integers.
         """
-
         cipher_array = []
         for char in plaintext:
             if char.isalpha():

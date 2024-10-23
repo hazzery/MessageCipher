@@ -12,7 +12,15 @@ class TestAffineCipher(unittest.TestCase):
     AffineCipher class.
     """
 
-    def test_invalid_a_coefficient(self) -> None:
+    def test_valid_coefficients_no_error_thrown(self) -> None:
+        """The AffineCipher class should be constructable
+        if both coefficients are invertible modulo 26.
+        """
+        AffineCipher(5, 0)
+        AffineCipher(11, 0)
+        AffineCipher(19, 0)
+
+    def test_invalid_a_coefficient_throws_value_error(self) -> None:
         """
         degree_one coefficients not invertible modulo 26.
         """
@@ -20,11 +28,6 @@ class TestAffineCipher(unittest.TestCase):
         self.assertRaises(ValueError, AffineCipher, 6, 0)
         self.assertRaises(ValueError, AffineCipher, 13, 0)
         self.assertRaises(ValueError, AffineCipher, 26, 0)
-
-        # invertible coefficients shouldn't throw error
-        AffineCipher(5, 0)
-        AffineCipher(11, 0)
-        AffineCipher(19, 0)
 
     def test_invalid_b_coefficient(self) -> None:
         """

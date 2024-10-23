@@ -6,7 +6,7 @@ This module defines functions for converting between characters and integers.
 
 
 def char_to_int(char: str) -> int:
-    """Converts single character to numerical value.
+    """Convert a single character to its numerical value.
 
     :param char: A string of length 1 containing a letter.
     :return: An integer representation of ``char``.
@@ -22,7 +22,7 @@ def char_to_int(char: str) -> int:
 
 
 def int_to_char(number: int) -> str:
-    """Converts an integer to a character.
+    """Convert an integer to its corresponding character.
 
     :param number: An integer to convert.
     :return: A string of length 1 containing letter representation of ``number``.
