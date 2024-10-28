@@ -1,14 +1,14 @@
 """Prime generator unit testing suite."""
 
-from time import perf_counter
 import unittest
+from time import perf_counter
 
 from message_cipher.prime_generator import (
-    n_bit_random,
+    NUMBER_OF_BITS,
+    generate_large_prime,
     get_low_level_prime,
     is_miller_rabin_passed,
-    generate_large_prime,
-    NUMBER_OF_BITS,
+    n_bit_random,
 )
 
 

@@ -1,6 +1,7 @@
 """Caesar Cipher unit testing suite."""
 
 import unittest
+
 from message_cipher.caesar_cipher import CaesarCipher
 
 

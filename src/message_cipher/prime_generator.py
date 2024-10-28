@@ -5,7 +5,9 @@ All code below is improved upon code sourced from:
 https://www.geeksforgeeks.org/how-to-generate-large-prime-numbers-for-rsa-algorithm/
 """
 
-import random
+import secrets
+
+_SECURE_RNG = secrets.SystemRandom()
 
 NUMBER_OF_BITS = 12
 
@@ -90,7 +92,7 @@ def n_bit_random(number_of_bits: int) -> int:
     :param number_of_bits: The desired size (in binary bits) of the random number.
     :return: A random number that is ``number_of_bits`` bits long.
     """
-    return random.randrange(2 ** (number_of_bits - 1), 2**number_of_bits - 1)
+    return _SECURE_RNG.randrange(2 ** (number_of_bits - 1), 2**number_of_bits - 1)
 
 
 def get_low_level_prime(number_of_bits: int) -> int:
@@ -123,7 +125,6 @@ def is_miller_rabin_passed(miller_rabin_candidate: int) -> bool:
     while even_component % 2 == 0:
         even_component >>= 1
         max_divisions_by_two += 1
-    assert 2**max_divisions_by_two * even_component == miller_rabin_candidate - 1
 
     def trial_composite(round_tester: int) -> bool:
         if pow(round_tester, even_component, miller_rabin_candidate) == 1:
@@ -140,7 +141,7 @@ def is_miller_rabin_passed(miller_rabin_candidate: int) -> bool:
     # Set number of trials here
     number_of_rabin_trials = 20
     for _ in range(number_of_rabin_trials):
-        round_tester = random.randrange(2, miller_rabin_candidate)
+        round_tester = _SECURE_RNG.randrange(2, miller_rabin_candidate)
         if trial_composite(round_tester):
             return False
 

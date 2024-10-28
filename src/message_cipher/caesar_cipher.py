@@ -12,7 +12,7 @@ from .modulo26_cipher import Mod26Cipher
 class CaesarCipher(Mod26Cipher):
     """Encrypy and decrypt alphabetic text using the Ceasar Cipher algorithm."""
 
-    def __init__(self, shift: int):
+    def __init__(self, shift: int) -> None:
         """Initialize a new Caesar cipher with shift of ``shift``.
 
         :param shift: The number of letters to shift the alphabet by.

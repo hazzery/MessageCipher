@@ -1,7 +1,8 @@
 """Modulo 26 Cipher module.
 
 This module defines the Mod26Cipher class,
-which is an abstract base class for implementing ciphers that operate on the modulo 26 alphabet.
+which is an abstract base class for implementing ciphers that operate on the
+modulo 26 alphabet.
 """
 
 from abc import ABCMeta, abstractmethod

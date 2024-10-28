@@ -1,7 +1,8 @@
 """RSA system unit testing suite."""
 
 import unittest
-from message_cipher.rsa_system import RSA, is_prime, invertible_elements
+
+from message_cipher.rsa_system import RSA, invertible_elements, is_prime
 
 
 class TestRSA(unittest.TestCase):
@@ -41,17 +42,20 @@ class TestRSA(unittest.TestCase):
         """
         expected_invertible_elements = [1, 2, 3, 4]
         self.assertListEqual(
-            expected_invertible_elements, sorted(invertible_elements(5))
+            expected_invertible_elements,
+            sorted(invertible_elements(5)),
         )
 
         expected_invertible_elements = [1, 3, 7, 9]
         self.assertListEqual(
-            expected_invertible_elements, sorted(invertible_elements(10))
+            expected_invertible_elements,
+            sorted(invertible_elements(10)),
         )
 
         expected_invertible_elements = [1, 3, 7, 9, 11, 13, 17, 19]
         self.assertListEqual(
-            expected_invertible_elements, sorted(invertible_elements(20))
+            expected_invertible_elements,
+            sorted(invertible_elements(20)),
         )
 
     def test_init(self) -> None:

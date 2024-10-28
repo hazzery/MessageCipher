@@ -5,6 +5,7 @@ which is a purely abstract base class (interface) for implementing various ciphe
 """
 
 from abc import ABCMeta, abstractmethod
+from collections.abc import Iterable
 from typing import Any
 
 
@@ -13,7 +14,7 @@ class Encrypter(metaclass=ABCMeta):
     """Encrypter acts as an interface for any object capable of encrypting messages."""
 
     @abstractmethod
-    def encrypt(self, plaintext: str) -> Any:
+    def encrypt(self, plaintext: str) -> Iterable[Any]:
         """Encrypts the contents of ``plaintext``.
 
         :param plaintext: A message to be encrypted.

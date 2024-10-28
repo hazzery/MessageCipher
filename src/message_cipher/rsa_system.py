@@ -5,13 +5,14 @@ an RsaEncrypter and an RsaDecrypter.
 """
 
 import math
-import random
-from typing import Iterator, Any
+import secrets
+from collections.abc import Iterator
+from typing import Any
 
-from .prime_generator import generate_large_prime
-from .rsa_encrypter import RsaEncrypter
-from .rsa_decrypter import RsaDecrypter
 from .cipher import Cipher
+from .prime_generator import generate_large_prime
+from .rsa_decrypter import RsaDecrypter
+from .rsa_encrypter import RsaEncrypter
 
 
 def is_prime(number: int) -> bool:
@@ -45,16 +46,7 @@ def invertible_elements(number: int) -> list[int]:
     :param number: The modulo to find invertible numbers in.
     :return: A list of all invertible elements.
     """
-    result = []
-    for i in range(number):
-        try:
-            inverse = pow(i, -1, number)
-            result.append(inverse)
-        except ValueError:
-            # `i` is not invertible modulo `number`
-            # and should not be appended to the list.
-            pass
-    return result
+    return [pow(i, -1, number) for i in range(number) if math.gcd(i, number) == 1]
 
 
 class RSA(Cipher, RsaEncrypter, RsaDecrypter):
@@ -66,7 +58,7 @@ class RSA(Cipher, RsaEncrypter, RsaDecrypter):
     This implements a simplified version of the RSA encryption algorithm.
     """
 
-    def __init__(self, prime1: int = 0, prime2: int = 0, exponent: int = 0):
+    def __init__(self, prime1: int = 0, prime2: int = 0, exponent: int = 0) -> None:
         """Initialize a new RSA system with values ``prime1`` and ``prime2``.
 
         :param prime1: First prime number for the RSA system.
@@ -76,7 +68,7 @@ class RSA(Cipher, RsaEncrypter, RsaDecrypter):
         if prime2:
             if not (is_prime(prime1) and is_prime(prime2)):
                 raise ValueError(
-                    "RSA system values `prime1` and `prime2` must be prime"
+                    "RSA system values `prime1` and `prime2` must be prime",
                 )
         else:
             prime1 = generate_large_prime()
@@ -86,10 +78,10 @@ class RSA(Cipher, RsaEncrypter, RsaDecrypter):
         __phi_n = (prime1 - 1) * (prime2 - 1)
 
         if not exponent:
-            exponent = random.choice(invertible_elements(__phi_n))
+            exponent = secrets.choice(invertible_elements(__phi_n))
         elif exponent not in invertible_elements(__phi_n):
             raise ValueError(
-                "Specified exponent value must be invertible modulo phi(product)"
+                "Specified exponent value must be invertible modulo phi(product)",
             )
 
         self.__private_key = pow(exponent, -1, __phi_n)
@@ -102,9 +94,6 @@ class RSA(Cipher, RsaEncrypter, RsaDecrypter):
 
         :return: An iterator for this RSA system.
         """
-        return iter(
-            (
-                RsaEncrypter(self.product, self.exponent),
-                RsaDecrypter(self.product, self.__private_key),
-            )
-        )
+        yield RsaEncrypter(self.product, self.exponent)
+        yield RsaDecrypter(self.product, self.__private_key)
+        return

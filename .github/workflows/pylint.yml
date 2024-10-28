@@ -20,4 +20,4 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        pylint message_cipher tests main.py
+        pylint src tests main.py

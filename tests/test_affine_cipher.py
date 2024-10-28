@@ -1,6 +1,7 @@
 """Affine Cipher unit testing suite."""
 
 import unittest
+
 from message_cipher.affine_cipher import AffineCipher
 
 

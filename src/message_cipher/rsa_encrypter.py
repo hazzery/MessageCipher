@@ -13,7 +13,7 @@ from .encrypter import Encrypter
 class RsaEncrypter(Encrypter):
     """RsaEncrypter performs calculations to encrypt string messages."""
 
-    def __init__(self, product: int, exponent: int):
+    def __init__(self, product: int, exponent: int) -> None:
         """Initialise a new RSA decrypter with specified ``exponent`` and ``product``.
 
         :param product: The product of two large prime numbers.
@@ -28,8 +28,7 @@ class RsaEncrypter(Encrypter):
         :param char: A string of length 1 containing the letter to be encrypted.
         :return: A string of length 1 containing the encrypted letter.
         """
-        number = pow(char_to_int(char), self.exponent, self.product)
-        return number
+        return pow(char_to_int(char), self.exponent, self.product)
 
     def encrypt(self, plaintext: str) -> list[int]:
         """Encrypt a message using the RSA system.
@@ -37,8 +36,4 @@ class RsaEncrypter(Encrypter):
         :param plaintext: A message to be encrypted.
         :return: The encrypted message as an array of integers.
         """
-        cipher_array = []
-        for char in plaintext:
-            if char.isalpha():
-                cipher_array.append(self._encrypt_char(char))
-        return cipher_array
+        return [self._encrypt_char(char) for char in plaintext if char.isalpha()]

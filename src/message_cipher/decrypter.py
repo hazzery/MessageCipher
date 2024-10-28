@@ -5,7 +5,8 @@ which is a purely abstract base class (interface) for implementing various ciphe
 """
 
 from abc import ABCMeta, abstractmethod
-from typing import Iterable, Any
+from collections.abc import Iterable
+from typing import Any
 
 
 # pylint: disable=locally-disabled, too-few-public-methods

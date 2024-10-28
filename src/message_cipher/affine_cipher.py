@@ -6,6 +6,8 @@ which is a concrete implementation of the Mod26Cipher class.
 The AffineCipher class uses the Affine cipher algorithm for encryption and decryption.
 """
 
+from typing import Final
+
 from .conversions import char_to_int, int_to_char
 from .modulo26_cipher import Mod26Cipher
 
@@ -22,9 +24,9 @@ def inverse_modulo_26(number: int) -> int:
 class AffineCipher(Mod26Cipher):
     """Encrypt and decrypt alphabetic text using the Affine Cipher algorithm."""
 
-    INVERTIBLE_ELEMENTS = [1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25]
+    INVERTIBLE_ELEMENTS: Final = [1, 3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25]
 
-    def __init__(self, degree_one: int, degree_zero: int):
+    def __init__(self, degree_one: int, degree_zero: int) -> None:
         """Initialize a new Affine cipher with coefficients ``degree_one`` and ``degree_zero``.
 
         :param degree_one: The polynomial degree one coefficient of the Affine cipher.
@@ -32,13 +34,14 @@ class AffineCipher(Mod26Cipher):
         """
         if degree_one not in AffineCipher.INVERTIBLE_ELEMENTS:
             raise ValueError(
-                "Affine cipher coefficient 'degree_one' must be invertible modulo 26"
+                "Affine cipher coefficient 'degree_one' must be invertible \
+                modulo 26",
             )
 
         if not 0 <= degree_zero < Mod26Cipher.NUMBER_OF_LETTERS_IN_ALPHABET:
             raise ValueError(
                 "Affine cipher coefficient 'degree_zero'\
-                            must be in range `0 <= degree_zero < 26`"
+                must be in range `0 <= degree_zero < 26`",
             )
 
         self.degree_one = degree_one

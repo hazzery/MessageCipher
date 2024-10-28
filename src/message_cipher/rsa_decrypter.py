@@ -18,7 +18,7 @@ class RsaDecrypter(Decrypter):
     arrays of integers into string messages.
     """
 
-    def __init__(self, product: int, private_key: int):
+    def __init__(self, product: int, private_key: int) -> None:
         """Initialize a new RSA decryption system with values ``product`` and ``private_key``.
 
         :param product: The product of two large prime numbers.
