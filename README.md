@@ -25,15 +25,14 @@ This can be done one of two ways, either by directly cloning the git repository:
 pip install message_cipher@git+https://github.com/hazzery/MessageCipher.git
 ```
 
-Or by installing from a tarball archive (available for download from the
-releases page).
+Or by installing from a wheel (available for download from the releases page).
 
 ```bash
-pip install /path/to/MessageCipher-1.2.0.tar.gz
+pip install /path/to/MessageCipher-1.3-py3-none-any.whl
 ```
 
-Make sure to replace `/path/to/MessageCipher-1.2.0.tar.gz` with the correct path
-to the archive you downloaded from GitHub.
+Make sure to replace `/path/to/MessageCipher-1.3-py3-none-any.whl` with the correct path
+to the wheel you downloaded from GitHub.
 
 Once installed, you can import from MessageCipher like so:
 
