@@ -3,10 +3,10 @@
 Simple showcase of the three cipher classes implemented in this project
 """
 
-from message_cipher.affine_cipher import AffineCipher
-from message_cipher.caesar_cipher import CaesarCipher
-from message_cipher.rsa_system import RSA
-from message_cipher.cipher import Cipher
+from src.message_cipher.affine_cipher import AffineCipher
+from src.message_cipher.caesar_cipher import CaesarCipher
+from src.message_cipher.cipher import Cipher
+from src.message_cipher.rsa_system import RSA
 
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
