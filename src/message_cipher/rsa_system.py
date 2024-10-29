@@ -96,4 +96,3 @@ class RSA(Cipher, RsaEncrypter, RsaDecrypter):
         """
         yield RsaEncrypter(self.product, self.exponent)
         yield RsaDecrypter(self.product, self.__private_key)
-        return
