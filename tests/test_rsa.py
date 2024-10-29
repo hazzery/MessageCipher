@@ -2,7 +2,7 @@
 
 import unittest
 
-from message_cipher.rsa_system import RSA, invertible_elements, is_prime
+from src.message_cipher.rsa_system import RSA, invertible_elements, is_prime
 
 
 class TestRSA(unittest.TestCase):

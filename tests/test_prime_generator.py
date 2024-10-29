@@ -3,7 +3,7 @@
 import unittest
 from time import perf_counter
 
-from message_cipher.prime_generator import (
+from src.message_cipher.prime_generator import (
     NUMBER_OF_BITS,
     generate_large_prime,
     get_low_level_prime,

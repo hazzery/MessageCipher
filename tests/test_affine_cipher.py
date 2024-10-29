@@ -2,7 +2,7 @@
 
 import unittest
 
-from message_cipher.affine_cipher import AffineCipher
+from src.message_cipher.affine_cipher import AffineCipher
 
 
 class TestAffineCipher(unittest.TestCase):

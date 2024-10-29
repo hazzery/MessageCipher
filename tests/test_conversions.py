@@ -2,7 +2,7 @@
 
 import unittest
 
-from message_cipher.conversions import char_to_int, int_to_char
+from src.message_cipher.conversions import char_to_int, int_to_char
 
 
 class TestConversions(unittest.TestCase):
