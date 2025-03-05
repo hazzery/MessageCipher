@@ -33,7 +33,7 @@ include = ["message_cipher*"]
 
 [tool.mypy]
 files = ["src/message_cipher/*.py", "tests/*.py"]
-exclude = ['docs\']
+exclude = ['docs']
 
 [tool.ruff]
 exclude = ["docs/conf.py"]
