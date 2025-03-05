@@ -6,14 +6,16 @@
 import os
 import sys
 
+from message_cipher import __version__
+
 sys.path.insert(0, os.path.abspath("../src/"))
 
 # -- Project information -------------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "MessageCipher"
-version = "1.2.0"
-copyright = "2023, Harrison Parkes"
+version = __version__
+copyright = "2025, Harrison Parkes"
 author = "Harrison Parkes"
 
 # -- General configuration -----------------------------------------------------
