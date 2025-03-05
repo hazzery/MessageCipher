@@ -9,7 +9,7 @@ MessageCipher
 
 Hello! Welcome to MessageCipher's documentation! This library was primarily
 written as a learning excercise, aswell as a demonstration of my programming
-habbits.
+habits.
 
 To perform encryption and decryption with MessageCipher, simply import the main
 class from one of the cipher modules:
