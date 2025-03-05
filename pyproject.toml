@@ -31,6 +31,9 @@ version = { attr = "message_cipher.__version__" }
 where = ["src"]
 include = ["message_cipher*"]
 
+[tool.mypy]
+files = ["src/message_cipher/*.py", "tests/*.py"]
+
 [tool.ruff]
 exclude = ["docs/conf.py"]
 
