@@ -20,6 +20,10 @@ classifiers = [
 "Homepage" = "https://github.com/hazzery/MessageCipher"
 "Bug Tracker" = "https://github.com/hazzery/MessageCipher/issues"
 
+[dependency-groups]
+lint = ["ruff", "mypy", "pre-commit"]
+docs = ["sphinx", "sphinx_rtd_theme"]
+
 [tool.setuptools.dynamic]
 version = { attr = "message_cipher.__version__" }
 
