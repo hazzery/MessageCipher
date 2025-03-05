@@ -1,0 +1,7 @@
+message\_cipher.cipher module
+=============================
+
+.. automodule:: message_cipher.cipher
+   :members:
+   :show-inheritance:
+   :undoc-members:
