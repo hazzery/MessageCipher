@@ -2,9 +2,9 @@ name: Build-sphinx-docs
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
   workflow_dispatch:
 
@@ -18,7 +18,7 @@ jobs:
       - name: Set up Python 3.12
         uses: actions/setup-python@v2
         with:
-           python-version: "3.12"
+          python-version: "3.12"
 
       - name: Install dependencies
         run: |
@@ -30,4 +30,4 @@ jobs:
           make html
       - name: Run ghp-import
         run: |
-          ghp-import -n -p -f docs/_build/html
+          ghp-import --no-jekyll --cname=messagecipher.hparkes.com --push --force docs/_build/html
