@@ -1,0 +1,7 @@
+message\_cipher.affine\_cipher module
+=====================================
+
+.. automodule:: message_cipher.affine_cipher
+   :members:
+   :show-inheritance:
+   :undoc-members:

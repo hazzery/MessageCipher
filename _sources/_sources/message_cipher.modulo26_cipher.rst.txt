@@ -1,0 +1,7 @@
+message\_cipher.modulo26\_cipher module
+=======================================
+
+.. automodule:: message_cipher.modulo26_cipher
+   :members:
+   :show-inheritance:
+   :undoc-members:
