@@ -1,0 +1,7 @@
+message\_cipher.prime\_generator module
+=======================================
+
+.. automodule:: message_cipher.prime_generator
+   :members:
+   :show-inheritance:
+   :undoc-members:
