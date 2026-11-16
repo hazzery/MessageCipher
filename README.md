@@ -7,6 +7,13 @@
 [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/pylint-dev/pylint)
 [![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
 
+
+## New home
+
+This repository has moved to [GitLab](https://gitlab.com/hazzery/messagecipher).
+
+## Brief
+
 MessageCipher is a hobby project I started whilst studying discrete mathematics
 in my first year at the University of Canterbury.
 It contains code that implements the Caesar Cipher and Affine Cipher algorithms,
